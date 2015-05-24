@@ -1,20 +1,30 @@
 "use strict";
 
-Meteor.methods({
-    getForecast: function() {
-        this.unblock();
-        let url = "https://api.twitch.tv/kraken/streams?limit=3";
-        return Meteor.http.get(url);
-    },
-    saveForecast: function() {
-        Meteor.call('getForecast', function(err, res) {
-            let data = res.data;
+var ForecastFetcher = {
+    fetchForecast (url) {
+        return new Promise((resolve, reject) => {
+            this.unblock();
+            let result = Meteor.http.get(url, {timeout:10000});
 
-            Forecasts.insert(data);
+            if(result && result.statusCode === 200) {
+                //console.log("response received.");
+                var respJson = JSON.parse(result.content);
+                resolve(respJson);
+            } else if (result !== undefined) {
+                //console.log("Response issue: ", result.statusCode);
+                var errorJson = JSON.parse(result.content);
+                reject(result.statusCode + " " + errorJson.error);
+            } else {
+                //console.log("No response");
+                reject("No response");
+            }
         });
+    },
+    saveForecast (url) {
+        getForecast(url).then(function(result) { 
+            Forecasts.insert(result.data);
+        }, function(err) {
+          console.log(err);
+      });
     }
-});
-
-Meteor.startup(function(){
-    Meteor.setInterval(() => { Meteor.call('saveForecast'); }, 1000);
-});
+};
