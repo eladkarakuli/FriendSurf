@@ -1,1 +1,0 @@
-Forecasts = new Mongo.Collection("forecasts");
