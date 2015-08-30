@@ -19,7 +19,8 @@ Social swell forecast app, build using [meteor](https://www.meteor.com).
 
 1. Install [meteor](https://www.meteor.com/install).
 2. Clone repository.
-3. In command line cd friend-surf/app, to run type ```meteor run --settings ../config/settings.json```
+3. In command line cd friend-surf/app
+4. To run type ```meteor run --settings ../config/settings.json```
 
 
 <br />
