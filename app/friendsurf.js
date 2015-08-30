@@ -1,5 +1,9 @@
 if (Meteor.isClient) {
 
+  // Subscriptions
+  Forecasts = Meteor.subscribe('forecasts');
+
+
   ReactiveTabs.createInterface({
     template: 'basicTabs',
     onChange: function (slug, template) {
@@ -76,10 +80,4 @@ if (Meteor.isClient) {
         }]
     };
   };
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
 }

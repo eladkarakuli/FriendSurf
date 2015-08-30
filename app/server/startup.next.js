@@ -4,19 +4,13 @@ let fetchForecastHandler = function(url) {
 			error === undefined ? Meteor.call('saveForecast', result) : console.log("err " + error + " res " + result); 
 		}
 	);
-}
-
-Meteor.initializeFetchingIntervalsBasedSettings = function() {
-	let forecastFetchInterval = 10000; // TODO: put this in settings/config
-
-	initializeFetchingIntervals(Meteor.settings.forecastApiUrl, Meteor.settings.forecastApiKey, forecastFetchInterval);
-}
+};
 
 let initializeFetchingIntervals = function(apiBaseUrl, apiKey, interval = 10000) { 
 	check(apiBaseUrl, String);
 	check(apiKey, String);
 
-	spots = Spots.find({});
+	let spots = Spots.find({}).fetch();
 	spots.forEach(function (spot) {
 		let params = {
 			lat: spot.lat,
@@ -26,27 +20,23 @@ let initializeFetchingIntervals = function(apiBaseUrl, apiKey, interval = 10000)
 		baseUrl = apiBaseUrl;
 
 		let url = Meteor.forecastApiUrlGenerator.generate(baseUrl, params);
+		console.log('url: ' + url);
 		Meteor.setInterval(() => { fetchForecastHandler(url) } , interval);
 	});
-}
+};
+
+Meteor.initializeFetchingIntervalsBasedSettings = function() {
+	let forecastFetchInterval = 10000; // TODO: put this in settings/config
+
+	initializeFetchingIntervals(Meteor.settings.forecastApiUrl, Meteor.settings.forecastApiKey, forecastFetchInterval);
+};
 
 Meteor.startup(() => {
-    //console.log("Initializing forecast fetcher interval based settings.");
-    //Meteor.initializeFetchingIntervalsBasedSettings();
+    console.log("Initializing forecast fetcher interval based settings.");
+    Meteor.initializeFetchingIntervalsBasedSettings();
 
     /*console.log("populating Data Base with the static data.")
     Meteor.populateDb.loadData();*/
-
-    let baseUrl = "http://api.worldweatheronline.com/free/v2/marine.ashx";
-    let params = {
-    	lat: 1,
-    	lng: 2,
-    	key: "123secret",
-    	tp: 6
-    }
-
-    let url = Meteor.forecastApiUrlGenerator.generate(baseUrl, params);
-    console.log(url);
 
 	console.log("Finish server startup!");
 });

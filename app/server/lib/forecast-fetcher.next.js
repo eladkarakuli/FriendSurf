@@ -1,8 +1,8 @@
 "use strict";
 
 let fetcher = function(caller, url){
-    let that = caller;
     check(url, String);
+    let that = caller;
     that.unblock();
     
     try {
@@ -24,9 +24,30 @@ let fetcher = function(caller, url){
     }
 };
 
-Meteor.methods({ fetchForecast: function(url) { return fetcher(this, url); }});
+let interpreteData = function(data) {
+    let forecast = Meteor.call('interpreteForecast', data);
+    if (forecast === undefined) {
+        throw("faild to interprete data: " + data);
+    }
+
+    return forecast;
+};
+
+Meteor.methods({ 
+    fetchForecast: function(url) { return fetcher(this, url); }
+});
 
 Meteor.methods({ saveForecast: (respJson) => {
-        if (respJson !== undefined && _.has(respJson, 'responseData'))
-            Forecasts.insert(respJson.responseData);
+    try {
+        if (respJson === undefined || !_.has(respJson, 'data')) {
+            debugger;
+            throw("Faild to save a bad response: " + respJson);
+        }
+
+        let forecast = interpreteData(respJson);
+        Forecasts.insert(forecast);
+    }
+    catch (e) {
+        console.error(e);
+    }
 }});
