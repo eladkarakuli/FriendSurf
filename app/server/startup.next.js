@@ -1,7 +1,7 @@
-let fetchForecastHandler = function(url) {
+let fetchForecastHandler = function(url, spotId) {
 	Meteor.call('fetchForecast', url,
 		(error, result) => { 
-			error === undefined ? Meteor.call('saveForecast', result) : console.log("err " + error + " res " + result); 
+			error === undefined ? Meteor.call('saveForecast', result, spotId) : console.log("err " + error + " res " + result); 
 		}
 	);
 };
@@ -21,7 +21,8 @@ let initializeFetchingIntervals = function(apiBaseUrl, apiKey, interval = 10000)
 
 		let url = Meteor.forecastApiUrlGenerator.generate(baseUrl, params);
 		console.log('url: ' + url);
-		Meteor.setInterval(() => { fetchForecastHandler(url) } , interval);
+		console.log('id:' + spot._id);
+		Meteor.setInterval(() => { fetchForecastHandler(url, spot._id) } , interval);
 	});
 };
 

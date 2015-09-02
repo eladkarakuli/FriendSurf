@@ -37,7 +37,8 @@ Meteor.methods({
     fetchForecast: function(url) { return fetcher(this, url); }
 });
 
-Meteor.methods({ saveForecast: (respJson) => {
+Meteor.methods({ saveForecast: (respJson, spotId) => {
+    console.log(respJson + ' - ' + spotId)
     try {
         if (respJson === undefined || !_.has(respJson, 'data')) {
             debugger;
@@ -45,7 +46,8 @@ Meteor.methods({ saveForecast: (respJson) => {
         }
 
         let forecast = interpreteData(respJson);
-        Forecasts.insert(forecast);
+        forecast.spotId = spotId;
+        Forecasts.upsert({spotId: forecast.spotId, date: forecast.date}, forecast);
     }
     catch (e) {
         console.error(e);
