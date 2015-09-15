@@ -34,7 +34,7 @@ Meteor.initializeFetchingIntervalsBasedSettings = function() {
 
 Meteor.startup(() => {
     console.log("Initializing forecast fetcher interval based settings.");
-    Meteor.initializeFetchingIntervalsBasedSettings();
+    //Meteor.initializeFetchingIntervalsBasedSettings();
 
     /*console.log("populating Data Base with the static data.")
     Meteor.populateDb.loadData();*/

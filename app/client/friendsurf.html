@@ -1,15 +1,21 @@
-<head>
-  <title>friendsurf</title>
-</head>
+<template name="home">
+  <head>
+    <title>friendsurf</title>
+  </head>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
+  <body>
+    <h1>Welcome to Meteor!</h1>
 
-  {{> myTemplate}}
-</body>
+    {{> myTemplate}}
+  </body>
+</template>
 
 <template name="chartTemplate">
   {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
+</template>
+
+<template name="insertReport">
+  {{> quickForm collection="Reports" id="insertReportForm" type="insert"}}
 </template>
 
 <template name="myTemplate">
@@ -26,15 +32,12 @@
          `{{#tabContent slug="nameOfSlug"}} ... {{/tabContent}}`
          These can be defined in any order you like.
     -->
-    {{#tabContent slug="people"}}
+    {{#tabContent slug="spots"}}
       {{> chartTemplate}}
     {{/tabContent}}
 
-    {{#tabContent slug="places"}}
-      <h2>Places</h2>
-      <button class="add-places">
-        Add Places
-      </button>
+    {{#tabContent slug="report"}}
+      {{> insertReport}}
     {{/tabContent}}
 
     {{#tabContent slug="things"}}

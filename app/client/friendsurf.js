@@ -18,8 +18,8 @@ if (Meteor.isClient) {
     tabs: function () {
       // Every tab object MUST have a name and a slug!
       return [
-        { name: 'People', slug: 'people' },
-        { name: 'Places', slug: 'places' },
+        { name: 'Spots', slug: 'spots' },
+        { name: 'Report', slug: 'report' },
         { name: 'Things', slug: 'things', onRender: function(template) {
           // This callback runs every time this specific tab's content renders.
           // As with `onChange`, the `template` instance is unique per block helper.
