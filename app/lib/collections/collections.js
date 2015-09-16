@@ -16,6 +16,14 @@ Schemas.Report = new SimpleSchema({
     label: "Short Description",
     max: 100,
     optional: true
+  },
+  date: {
+    type: Date,
+    defaultValue: new Date(),
+    autoform: {
+      type: "hidden",
+      label: false
+    }
   }
 });
 

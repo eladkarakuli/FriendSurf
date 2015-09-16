@@ -15,7 +15,14 @@
 </template>
 
 <template name="insertReport">
-  {{> quickForm collection="Reports" id="insertReportForm" type="insert"}}
+  {{> quickForm collection="Reports" id="insertReportForm" type="insert" }}
+</template>
+
+<template name="spotsList">
+  {{#each spots}}
+    {{name}} <br />
+  {{/each}}
+  {{count}}
 </template>
 
 <template name="myTemplate">
@@ -33,7 +40,8 @@
          These can be defined in any order you like.
     -->
     {{#tabContent slug="spots"}}
-      {{> chartTemplate}}
+      <!-- {{> chartTemplate}} -->
+      {{> spotsList}}
     {{/tabContent}}
 
     {{#tabContent slug="report"}}

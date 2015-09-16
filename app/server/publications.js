@@ -2,6 +2,10 @@ Meteor.publish('forecasts', function() {
     return Forecasts.find();
 });
 
+Meteor.publish('spots', function() {
+    return Spots.find();
+});
+
 Meteor.publish('reports', function() {
 	return Reports.find();
 });

@@ -1,9 +1,5 @@
 if (Meteor.isClient) {
 
-  // Subscriptions
-  Forecasts = Meteor.subscribe('forecasts');
-
-
   ReactiveTabs.createInterface({
     template: 'basicTabs',
     onChange: function (slug, template) {
@@ -12,6 +8,22 @@ if (Meteor.isClient) {
       console.log('[tabs] Tab has changed! Current tab:', slug);
       console.log('[tabs] Template instance calling onChange:', template);
     }
+  });
+
+  Template.spotsList.helpers({
+    spots: function() {
+      return Spots.find();
+    },
+    count: function() {
+      return Spots.find().count();
+    }
+    /*hights: function () {
+      Forecasts.aggregate([
+                     { $match: { date: new Date().toJSON().slice(0,10) } },
+                     { $group: { _id: "$spotId", total: { $sum: "$amount" } } },
+                     { $sort: { total: -1 } }
+                   ]);
+    }*/
   });
 
   Template.myTemplate.helpers({
