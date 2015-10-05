@@ -5,8 +5,8 @@ if (Meteor.isClient) {
     onChange: function (slug, template) {
       // This callback runs every time a tab changes.
       // The `template` instance is unique per {{#basicTabs}} block.
-      console.log('[tabs] Tab has changed! Current tab:', slug);
-      console.log('[tabs] Template instance calling onChange:', template);
+      /*console.log('[tabs] Tab has changed! Current tab:', slug);
+      console.log('[tabs] Template instance calling onChange:', template);*/
     }
   });
 
@@ -16,14 +16,10 @@ if (Meteor.isClient) {
     },
     count: function() {
       return Spots.find().count();
+    },
+    forecasts: function () {
+      return CurrentForecast.find();
     }
-    /*hights: function () {
-      Forecasts.aggregate([
-                     { $match: { date: new Date().toJSON().slice(0,10) } },
-                     { $group: { _id: "$spotId", total: { $sum: "$amount" } } },
-                     { $sort: { total: -1 } }
-                   ]);
-    }*/
   });
 
   Template.myTemplate.helpers({

@@ -31,3 +31,5 @@ Schemas.Report = new SimpleSchema({
 Spots = new Mongo.Collection("spots");
 Reports = new Mongo.Collection("reports");
 Reports.attachSchema(Schemas.Report);
+
+CurrentForecast = new Mongo.Collection("currentForecast");

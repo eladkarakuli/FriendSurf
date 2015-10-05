@@ -1,5 +1,5 @@
-Meteor.publish('forecasts', function() {
-    return Forecasts.find();
+Meteor.publish('currentForecasts', function() {
+    return CurrentForecast.find();
 });
 
 Meteor.publish('spots', function() {

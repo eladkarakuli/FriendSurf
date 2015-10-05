@@ -1,43 +1,24 @@
-let fetchForecastHandler = function(url, spotId) {
-	Meteor.call('fetchForecast', url,
-		(error, result) => { 
-			error === undefined ? Meteor.call('saveForecast', result, spotId) : console.log("err " + error + " res " + result); 
-		}
-	);
-};
+Meteor.initializeCurrentForecastManagerIntervalBasedSettings = function() {
+	let interval = Meteor.settings.currentForecastManagerInterval || 3600000;
 
-let initializeFetchingIntervals = function(apiBaseUrl, apiKey, interval = 10000) { 
-	check(apiBaseUrl, String);
-	check(apiKey, String);
-
-	let spots = Spots.find({}).fetch();
-	spots.forEach(function (spot) {
-		let params = {
-			lat: spot.lat,
-			lng: spot.lng,
-			key: apiKey
-		},
-		baseUrl = apiBaseUrl;
-
-		let url = Meteor.forecastApiUrlGenerator.generate(baseUrl, params);
-		console.log('url: ' + url);
-		console.log('id:' + spot._id);
-		Meteor.setInterval(() => { fetchForecastHandler(url, spot._id) } , interval);
-	});
-};
-
-Meteor.initializeFetchingIntervalsBasedSettings = function() {
-	let forecastFetchInterval = 10000; // TODO: put this in settings/config
-
-	initializeFetchingIntervals(Meteor.settings.forecastApiUrl, Meteor.settings.forecastApiKey, forecastFetchInterval);
-};
+	// Initialize once befor setting interval
+	Meteor.CurrentForecastManager.setCurrentForecast();
+	Meteor.setInterval(() => { Meteor.CurrentForecastManager.setCurrentForecast(); }, interval);
+}
 
 Meteor.startup(() => {
-    console.log("Initializing forecast fetcher interval based settings.");
-    //Meteor.initializeFetchingIntervalsBasedSettings();
-
-    /*console.log("populating Data Base with the static data.")
+	/*console.log("populating Data Base with the static data.")
     Meteor.populateDb.loadData();*/
+
+    console.log("Initializing forecast fetcher interval based settings.");
+    Meteor.forecastFetcher.initializeFetchingIntervalsBasedSettings();
+
+    // don't wait for first interval and run immediate: 
+    console.log("Running fetch...");
+    Meteor.forecastFetcher.runFetch();
+
+    console.log("Initializing current forecast manager based settings.");
+    Meteor.initializeCurrentForecastManagerIntervalBasedSettings();
 
 	console.log("Finish server startup!");
 });

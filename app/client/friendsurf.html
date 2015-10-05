@@ -19,10 +19,11 @@
 </template>
 
 <template name="spotsList">
-  {{#each spots}}
-    {{name}} <br />
+  {{#each forecasts}}
+    {{spotName}} - {{swellHeight}}<br />
   {{/each}}
   {{count}}
+  <br/>
 </template>
 
 <template name="myTemplate">
