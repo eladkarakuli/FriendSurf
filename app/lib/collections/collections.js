@@ -24,6 +24,14 @@ Schemas.Report = new SimpleSchema({
       type: "hidden",
       label: false
     }
+  },
+  spotId: {
+    type: String,
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
   }
 });
 

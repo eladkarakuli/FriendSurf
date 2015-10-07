@@ -15,12 +15,12 @@
 </template>
 
 <template name="insertReport">
-  {{> quickForm collection="Reports" id="insertReportForm" type="insert" }}
+  {{> quickForm collection="Reports" id="insertReportForm" type="insert" param=this }}
 </template>
 
 <template name="spotsList">
   {{#each forecasts}}
-    {{spotName}} - {{swellHeight}}<br />
+    <a href="/{{spotId}}">{{spotName}}</a> - {{swellHeight}}<br />
   {{/each}}
   {{count}}
   <br/>
@@ -46,7 +46,7 @@
     {{/tabContent}}
 
     {{#tabContent slug="report"}}
-      {{> insertReport}}
+      <!-- {{> insertReport}} -->
     {{/tabContent}}
 
     {{#tabContent slug="things"}}
