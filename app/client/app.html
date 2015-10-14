@@ -3,10 +3,11 @@
     <title>friendsurf</title>
   </head>
 
-  <body>
+  <body ng-app="waveshout">
     <h1>Welcome to Meteor!</h1>
 
-    {{> myTemplate}}
+    <ng-include src="'client/partials/spots-list.ng.html'"
+         ng-controller="SpotsListCtrl"></ng-include>
   </body>
 </template>
 
@@ -16,14 +17,6 @@
 
 <template name="insertReport">
   {{> quickForm collection="Reports" id="insertReportForm" type="insert" param=this }}
-</template>
-
-<template name="spotsList">
-  {{#each forecasts}}
-    <a href="/{{spotId}}">{{spotName}}</a> - {{swellHeight}}<br />
-  {{/each}}
-  {{count}}
-  <br/>
 </template>
 
 <template name="myTemplate">
