@@ -6,7 +6,7 @@ Schemas.Report = new SimpleSchema({
     max: 25,
     optional: true
   },
-  hight: {
+  height: {
     type: Number,
     label: "Wave Hight (cm)",
     min: 0
@@ -20,6 +20,7 @@ Schemas.Report = new SimpleSchema({
   date: {
     type: Date,
     defaultValue: new Date(),
+    denyUpdate: true,
     autoform: {
       type: "hidden",
       label: false

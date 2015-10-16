@@ -1,13 +1,9 @@
-/*Template.spot.helpers({
-	// set default value of spot id for report doc insertion
-    defaultValues: function() {
-        return { spotId: this.spot._id };
-    }
-});*/
-
 angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor', '$stateParams',
 
   function ($scope, $meteor, $stateParams) {
+    $scope.$meteorSubscribe('reports');
+    $scope.reports = $meteor.collection(Reports);
+
   	var vm = this;
   	vm.user = {};
 
@@ -23,10 +19,10 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
   		}
   	},
   	{
-  		key: 'hight',
+  		key: 'height',
   		type: 'input',
   		templateOptions: {
-  			label: "Wave Hight (cm)"
+  			label: "Wave Height (cm)"
   		}
   	},
   	{
@@ -40,14 +36,16 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
   		}
   	}];
          
-
-  	/*$stateParams.booksId*/
-/*  	$scope.$meteorSubscribe('currentForecasts');
-    $scope.forecasts = $meteor.collection(function() {
-    	return CurrentForecast.find();
-    });*/
-
-    /*$scope.spots = Spots.find();
-    $scope.count = Spots.find().count();*/
+    vm.submit = function(report) {
+      $scope.reports.push({
+        reporter: report.reporter,
+        height: report.height,
+        description: report.description,
+        date: new Date(),
+        spotId: $stateParams.spotId
+      });
+      
+      vm.options.resetModel();
+    }
   }
 ]);

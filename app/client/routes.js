@@ -1,4 +1,3 @@
-console.log("router");
 angular.module('waveshout').config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 	function($urlRouterProvider, $stateProvider, $locationProvider){
 		$locationProvider.html5Mode(true);

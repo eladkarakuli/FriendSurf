@@ -1,8 +1,3 @@
-<formly-form model="vm.user" fields="vm.fields">
-    <button type="submit" ng-disabled="vm.someForm.$invalid">Submit</button>
+<formly-form model="vm.user" fields="vm.fields" options="vm.options">
+    <button type="submit" ng-disabled="vm.someForm.$invalid" ng-click="vm.submit(vm.user)">Submit</button>
 </formly-form>
-
-<!-- 
-<template name="spot">
-	  {{> quickForm collection="Reports" id="insertReportForm" type="insert" doc=defaultValues }}
-</template> -->

@@ -1,5 +1,10 @@
 .meteor/local
 .meteor/meteorite
 
+.idea/
+
 # production settings
 prod-settings.json
+
+#temp static data
+static/dump/
