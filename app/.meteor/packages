@@ -18,5 +18,8 @@ meteorhacks:npm
 npm-container
 aldeed:autoform
 aldeed:collection2
-iron:router
 meteorhacks:aggregate
+angular
+angularui:angular-ui-router
+vivekkatta:meteor-angular-formly
+iron:router
