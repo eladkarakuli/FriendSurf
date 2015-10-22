@@ -1,1 +1,11 @@
 /* CSS declarations go here */
+tr.spotList > td {
+	padding-right: 0.9em;
+	padding-bottom: 1em;
+}
+
+.reportBtn {
+	vertical-align: bottom;
+	margin: auto;
+	padding: 1.2em;
+}

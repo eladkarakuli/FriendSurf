@@ -1,0 +1,15 @@
+<div class="container">
+	<table style="padding:5px">
+    <tr ng-repeat="report in reports" class="reportList">
+    	<div class="reportClass">
+    		<td>{{report.reporter}}</td>
+    		<td>{{report.height}}</td>
+    		<td>{{report.date}}</td>
+    		<td>{{report.description}}</td>
+    	</div>
+    </tr>
+  </table>
+  <div margin="center">
+  <button class="reportBtn" ng-click="reportThisSpot()">Report!</button>
+  </div>
+</div>

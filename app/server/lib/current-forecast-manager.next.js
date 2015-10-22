@@ -14,19 +14,25 @@ let clearCurrentForecast = function() {
     CurrentForecast.remove({});
 }
 
+let getLastReportbySpot = function(spotId) {
+    return Reports.find({spotId: spotId}).sort({date: -1}).limit(1);
+}
+
 let registerCurrentForecast = function (forecasts) {
-    forecasts.fetch().forEach(function(forecast) { 
-        try {
+    try {
+        forecasts.fetch().forEach(function (forecast) {
             let name = Spots.findOne({ _id: forecast.spotId }).name;
+            let latestReport = getLastReportbySpot(forecast.spotId);
             CurrentForecast.insert({
                 spotId: forecast.spotId,
                 spotName: name,
-                swellHeight: forecast.reports[0].swellHeight
+                forecastSwellHeight: forecast.reports[0].swellHeight,
+                reportSwellHeight: latestReport
             });
-        } catch (err) {
-            console.log("faild to register current forecast: " + err.message);
-        }
-    });
+        });
+    } catch (err) {
+        console.log("faild to register current forecast: " + err.message);
+    }
 }
 
 /*
@@ -37,21 +43,21 @@ let setCurrentForecast = function(date, time) {
     checkLastUpdate();
 
     var hour = new Date().getHours();
-    var date = date || new Date().toJSON().slice(0,10)
-    var time = time || (Math.floor(hour/3)*300).toString();
+    date = date || new Date().toJSON().slice(0,10)
+    time = time || (Math.floor(hour/3)*300).toString();
 
-    var result = Forecasts.find(
+    var forecasts = Forecasts.find(
         { date: date}, 
         { fields: { reports: {$elemMatch: {time: time}}, spotId: 1, date: 1, } }
         );
 
-    if (result.count() === 0) {
+    if (forecasts.count() === 0) {
         console.log("Error! could not set current forecast:" + date + " " + time);
         return;
     }
 
     clearCurrentForecast();
-    registerCurrentForecast(result);
+    registerCurrentForecast(forecasts);
     setLastUpdate();
 }
 

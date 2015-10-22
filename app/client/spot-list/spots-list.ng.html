@@ -1,7 +1,14 @@
 <div class="container">
-	<ul>
-    <li ng-repeat="forecast in forecasts">
-    	<a href="/{{forecast.spotId}}">{{forecast.spotName}}</a> - {{forecast.swellHeight}}<br />
-    </li>
-  </ul>
+	<table style="padding:5px">
+    <tr ng-repeat="forecast in forecasts" class="spotList">
+    	<div class="spotClass">
+    		<td><a href="/reports/{{forecast.spotId}}">{{forecast.spotName}}</a></td>
+    		<td>{{forecast.forecastSwellHeight}}</td>
+    		<td>{{forecast.reportSwellHeight}}</td>
+    	</div>
+    </tr>
+  </table>
+  <div margin="center">
+  <button class="reportBtn" ng-click="report()">Report!</button>
+  </div>
 </div>
