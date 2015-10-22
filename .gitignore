@@ -1,7 +1,10 @@
 .meteor/local
 .meteor/meteorite
 
+# IDEs
 .idea/
+.vscode/
+app/jsconfig.json
 
 # production settings
 prod-settings.json
