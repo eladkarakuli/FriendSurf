@@ -4,8 +4,29 @@ tr.spotList > td {
 	padding-bottom: 1em;
 }
 
+tr.reportList > td {
+	padding-right: 0.9em;
+	padding-bottom: 1em;
+}
+
 .reportBtn {
 	vertical-align: bottom;
 	margin: auto;
 	padding: 1.2em;
+}
+
+.veryOldReport {
+	color: red;
+}
+
+.oldReport {
+	color: lightyellow;
+}
+
+.halfOldReport {
+	color: yellow;
+}
+
+.newReport {
+	color: green;
 }
