@@ -30,3 +30,13 @@ tr.reportList > td {
 .newReport {
 	color: green;
 }
+
+.reportForm {
+	padding: 0.9em 0;
+}
+
+.title {
+	font-size: 240%;
+	color: #000000;
+    text-decoration: none;
+}

@@ -19,7 +19,7 @@ angular.module('waveshout').config(['$urlRouterProvider', '$stateProvider', '$lo
 		})
 		.state('insertReport', {
 			url: '/:spotId',
-			templateUrl: 'client/report-spot/spot.ng.html',
+			templateUrl: 'client/report-spot/report-spot.ng.html',
 			controller: 'InsertReportCtrl as vm'
 		});
 		$urlRouterProvider.otherwise("/");
