@@ -37,13 +37,13 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
   	}];
          
     vm.submit = function(report) {
-      $scope.reports.push({
+      $meteor.call('submitReport', {
         reporter: report.reporter,
         height: report.height,
         description: report.description,
         date: new Date(),
         spotId: $stateParams.spotId
-      });
+      }); 
       
       vm.options.resetModel();
     }
