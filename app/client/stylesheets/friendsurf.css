@@ -73,7 +73,7 @@ tr.reportList > td {
 	float:left;
 }
 
-.no-link {
+.no-link, .no-link:hover, .no-link:active, .no-link:focus, .no-link:visited {
 	text-decoration: none;
 	color: inherit;
 }
@@ -85,23 +85,28 @@ tr.reportList > td {
 }
 
 .navigator {
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+	text-align: center;
 	height: 20%;
-	padding: 10px;
 	background: #00D5FF;
 }
 
 .navigator-item {
-	text-align: center;
+	font-family: Arial;
+	padding-left: 30px;
+	padding-right: 30px;
+	display: inline;
+	text-align: left;
 	background-color: #23BAD9;
 	color: white;
-	display:block;
-	height: 40px;
-	width: 80px;
+	font-size: 60px;
+	height: 100%;
 }
 
 .navigator-item:hover {
-	display: inline-block;
-	padding-left: 30px;
 	background-color: #1BA4BF;
 	cursor: pointer;
 }
@@ -113,14 +118,46 @@ tr.reportList > td {
 }
 
 .spot-list-item{
+	border-radius: 4px;
+	font-family: Arial;
+	color: white;
+	list-style-type: none;
 	font-size: 40px;
 	text-align: center;
 	width: 100%;
 	background: #9DD7E3;
 }
 
-.spot-list-item:hover {
 
+.spot-list-item:hover {
 	background: #4BAABD;
 	cursor: pointer;
+}
+
+.report-list{
+	height: 80%;
+	padding: 10px;
+	background: #D4F8FF;
+}
+
+.report-list-item{
+	border-radius: 4px;
+	font-family: Arial;
+	color: white;
+	list-style-type: none;
+	font-size: 40px;
+	text-align: left;
+	width: 100%;
+	background: #9DD7E3;
+}
+
+.report-list-item:hover {
+	background: #4BAABD;
+	cursor: pointer;
+}
+
+.report-list-sub-item{
+	display: inline;
+	width: 200px;
+	padding-right: 50px;
 }

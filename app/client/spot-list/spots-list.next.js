@@ -15,14 +15,14 @@ angular.module('waveshout').controller('SpotsListCtrl', ['$scope', '$meteor', '$
     	$location.path('/choosespot');
     }
 
-		$scope.spotsTemp = [
-			{name: 'Bat-Yam'},
-			{name: 'Zvulun'},
-			{name: 'Rishon-Le-Zion'},
-			{name: 'Haifa-Backdoor'},
-			{name: 'Hilton'}
-		];
+	$scope.reports = [
+		{spot:'Bat-Yam', waveHeight: 1.4, user: 'Daniel'},
+		{spot:'Palmachim', waveHeight: 1.2, user: 'Kelly Slater'},
+		{spot:'Zvulun', waveHeight: 1.0, user: 'CJ1990'},
+		{spot:'Haifa-Backdoor', waveHeight: 1.9, user:'YoniK'},
+		{spot:'Nechim', waveHeight: 0.9, user: 'Elad'},
+		{spot:'Hilton', waveHeight: 1.4, user: 'Avi Avinson'}
+	];
 		
-		$scope.wtf = 'WHAT DA FUK?!?!?!';
   }
 ]);
