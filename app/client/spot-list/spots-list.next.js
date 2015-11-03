@@ -5,7 +5,7 @@ angular.module('waveshout').controller('SpotsListCtrl', ['$scope', '$meteor', '$
     $scope.$meteorSubscribe('reports');
 
     $scope.forecasts = $meteor.collection(function() {
-    	return CurrentForecast.find();
+      return CurrentForecast.find();
     });
 
     /*$scope.spots = Spots.find();

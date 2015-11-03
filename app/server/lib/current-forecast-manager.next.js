@@ -14,7 +14,7 @@ let clearCurrentForecast = function() {
     CurrentForecast.remove({});
 }
 
-let getLastReportbySpot = function(spotId) {
+let getLastReportbySpotId = function(spotId) {
     var latestReport = Reports.findOne({spotId: spotId}, {sort: {date: -1}, limit: 1});
     return latestReport;
 }
@@ -24,7 +24,7 @@ let registerCurrentForecast = function (forecasts) {
         forecasts.fetch().forEach(function (forecast) {
             CurrentForecast.update({ spotId: forecast.spotId },
                 { $set: { forecastSwellHeight: forecast.reports[0].swellHeight } },
-                {multi: false, upsert: false}
+                { multi: false, upsert: false } 
             );
         });
     } catch (err) {
@@ -32,15 +32,16 @@ let registerCurrentForecast = function (forecasts) {
     }
 }
 
-let registerCurrentReport = function (spots) {
+let registerLatestReport = function (spots) {
     try {
         spots.fetch().forEach(function (spot) {
-            var report = getLastReportbySpot(spot._id);
+            var report = getLastReportbySpotId(spot._id);
             if (report) {
                 CurrentForecast.update({ spotId: spot._id },
-                    { $set: { reportSwellHeight: report.height } },
-                    {multi: false, upsert: false}
-                    );
+                    { $set: { reportSwellHeight: report.height,
+                              reportDate: report.date } },
+                    { multi: false, upsert: false }
+                );
             }
         });
     } catch (err) {
@@ -70,7 +71,7 @@ let updateLatestReports = function() {
         return;
     }
 
-    registerCurrentReport(spots);
+    registerLatestReport(spots);
 }
 
 let updateCurrentSpots = function() {

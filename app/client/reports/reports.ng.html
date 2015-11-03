@@ -5,7 +5,7 @@
     	<div class="reportClass">
         <td ng-if="report.date > quarterday" class="newReport">{{report.date | date:'HH:mm' }}</td>
         <td ng-if="report.date > halfday && report.date < quarterday" class="halfOldReport">{{report.date | date:'HH:mm' }}</td>
-        <td ng-if="report.date > yesterday && report.date < halfday" class="oldReport">{{report.date | date:'HH:mm' }}</td>
+        <td ng-if="report.date > yesterday && report.date < halfday" class="oldReport">{{report.date | date:'dd/MM HH:mm' }}</td>
         <td ng-if="report.date < yesterday" class="veryOldReport">{{report.date | date:'dd/MM HH:mm' }}</td>
         <td>{{report.height}}m</td>
         <td>{{report.reporter}}</td>
