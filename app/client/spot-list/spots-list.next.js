@@ -14,5 +14,15 @@ angular.module('waveshout').controller('SpotsListCtrl', ['$scope', '$meteor', '$
     $scope.report = function() {
     	$location.path('/choosespot');
     }
+
+		$scope.spotsTemp = [
+			{name: 'Bat-Yam'},
+			{name: 'Zvulun'},
+			{name: 'Rishon-Le-Zion'},
+			{name: 'Haifa-Backdoor'},
+			{name: 'Hilton'}
+		];
+		
+		$scope.wtf = 'WHAT DA FUK?!?!?!';
   }
 ]);
