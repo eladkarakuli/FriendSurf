@@ -15,6 +15,10 @@ tr.reportList > td {
 	padding: 1.2em;
 }
 
+.reportBtn > input[text]{
+	background-color: green;
+}
+
 .veryOldReport {
 	color: red;
 }
