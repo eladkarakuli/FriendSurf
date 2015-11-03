@@ -1,16 +1,17 @@
+'use strict';
+
 Meteor.populateDb = (function() {
 	var fs = Meteor.npmRequire('fs');
-	var path = Meteor.npmRequire('path');
 
 	let loadData = function () {
-	  var basepath = path.resolve('.').split('.meteor')[0];
+	  var appBasePath = process.env.PWD;
+	  var spotsCsvPath = path.join(appBasePath, '../', '/static/spots.csv');
 
 	  CSV().from.stream(
-	    fs.createReadStream(basepath+'static/spots.csv'),
+	    fs.createReadStream(spotsCsvPath),
 	      {'escape': '\\'})
 	    .on('record', Meteor.bindEnvironment(function(row, index) {
-	    	Spots.remove({});
-	    	Spots.insert({
+	    	Spots.upsert({ name: row[2] }, {
 	    		'lat': row[0],
 	    		'lng': row[1],
 	    		'name': row[2]
@@ -23,7 +24,7 @@ Meteor.populateDb = (function() {
 	      console.log('Error reading CSV:', err);
 	    })
 	    .on('end', function(count) {
-	      console.log(count, 'records read');
+	      console.log(count, 'spots read and update DB');
 	    });
 	}
 

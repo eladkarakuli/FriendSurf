@@ -1,3 +1,5 @@
+/*console.log("hereereerer im");
+
 var path = Npm.require('path');
 var fs = Npm.require('fs');
 
@@ -20,4 +22,4 @@ try {
 // Meteor to watch it and reload this package when it changes
 Package.onUse(function(api) {
   api.add_files(['index.js', '../../packages.json'], 'server');
-});
+});*/
