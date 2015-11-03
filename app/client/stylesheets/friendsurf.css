@@ -73,7 +73,7 @@ tr.reportList > td {
 	float:left;
 }
 
-.no-link {
+.no-link, .no-link:hover, .no-link:active, .no-link:focus, .no-link:visited {
 	text-decoration: none;
 	color: inherit;
 }
@@ -95,7 +95,6 @@ tr.reportList > td {
 }
 
 .navigator-item {
-	vertical-align: middle;
 	font-family: Arial;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -104,8 +103,7 @@ tr.reportList > td {
 	background-color: #23BAD9;
 	color: white;
 	font-size: 60px;
-	height: 40px;
-	width: 80px;
+	height: 100%;
 }
 
 .navigator-item:hover {
@@ -130,8 +128,36 @@ tr.reportList > td {
 	background: #9DD7E3;
 }
 
-.spot-list-item:hover {
 
+.spot-list-item:hover {
 	background: #4BAABD;
 	cursor: pointer;
+}
+
+.report-list{
+	height: 80%;
+	padding: 10px;
+	background: #D4F8FF;
+}
+
+.report-list-item{
+	border-radius: 4px;
+	font-family: Arial;
+	color: white;
+	list-style-type: none;
+	font-size: 40px;
+	text-align: left;
+	width: 100%;
+	background: #9DD7E3;
+}
+
+.report-list-item:hover {
+	background: #4BAABD;
+	cursor: pointer;
+}
+
+.report-list-sub-item{
+	display: inline;
+	width: 200px;
+	padding-right: 50px;
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 	<table style="padding:5px">
     <tr ng-repeat="forecast in forecasts" class="spotList">
     	<div class="spotClass">
@@ -11,4 +11,14 @@
   <div margin="center">
   <button class="reportBtn" ng-click="report()">Report!</button>
   </div>
+</div> -->
+
+<div class="report-list">
+	<ul ng-repeat="report in reports">
+		<li class="report-list-item">
+			<div class="report-list-sub-item"><span class="glyphicon glyphicon-user" style="padding-right: 20px; padding-left: 20px;"></span>{{report.user}}</div>
+			<div class="report-list-sub-item"> {{report.spot}}</div>
+			<div class="report-list-sub-item">{{report.waveHeight}}</div>
+		</li>
+	</ul>
 </div>
