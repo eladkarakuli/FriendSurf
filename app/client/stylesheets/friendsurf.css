@@ -85,6 +85,7 @@ tr.reportList > td {
 }
 
 .navigator {
+	vertical-align: middle;
 	padding: 0px;
 	margin: 0px;
 	list-style-type: none;
@@ -94,10 +95,12 @@ tr.reportList > td {
 }
 
 .navigator-item {
+	vertical-align: middle;
 	font-family: Arial;
 	padding-left: 30px;
+	padding-right: 30px;
 	display: inline;
-	text-align: center;
+	text-align: left;
 	background-color: #23BAD9;
 	color: white;
 	font-size: 60px;
@@ -117,6 +120,7 @@ tr.reportList > td {
 }
 
 .spot-list-item{
+	border-radius: 4px;
 	font-family: Arial;
 	color: white;
 	list-style-type: none;
