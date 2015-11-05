@@ -2,7 +2,7 @@ Meteor.initializeCurrentForecastManagerIntervalBasedSettings = function() {
 	let interval = Meteor.settings.currentForecastManagerInterval || 3600000;
 
 	// Initialize once befor setting interval
-	Meteor.CurrentForecastManager.updateCurrentForecastAndLatestReport("2015-09-02");
+	Meteor.CurrentForecastManager.updateCurrentForecastAndLatestReport();
 
 	Meteor.setInterval(() => { Meteor.CurrentForecastManager.updateCurrentForecastAndLatestReport(); }, interval);
 }

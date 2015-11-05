@@ -14,15 +14,15 @@ let clearCurrentForecast = function() {
     CurrentForecast.remove({});
 }
 
-let getLastReportbySpotId = function(spotId) {
-    var latestReport = Reports.findOne({spotId: spotId}, {sort: {date: -1}, limit: 1});
+let getLastReportbyspotName = function(spotName) {
+    var latestReport = Reports.findOne({spotName: spotName}, {sort: {date: -1}, limit: 1});
     return latestReport;
 }
 
 let registerCurrentForecast = function (forecasts) {
     try {
         forecasts.fetch().forEach(function (forecast) {
-            CurrentForecast.update({ spotId: forecast.spotId },
+            CurrentForecast.update({ spotName: forecast.spotName },
                 { $set: { forecastSwellHeight: forecast.reports[0].swellHeight } },
                 { multi: false, upsert: false } 
             );
@@ -35,9 +35,9 @@ let registerCurrentForecast = function (forecasts) {
 let registerLatestReport = function (spots) {
     try {
         spots.fetch().forEach(function (spot) {
-            var report = getLastReportbySpotId(spot._id);
+            var report = getLastReportbyspotName(spot.name);
             if (report) {
-                CurrentForecast.update({ spotId: spot._id },
+                CurrentForecast.update({ spotName: spot.name },
                     { $set: { reportSwellHeight: report.height,
                               reportDate: report.date } },
                     { multi: false, upsert: false }
@@ -52,7 +52,7 @@ let registerLatestReport = function (spots) {
 let updateForecasts = function(date, time) {
     var forecasts = Forecasts.find(
         { date: date}, 
-        { fields: { reports: {$elemMatch: {time: time}}, spotId: 1, date: 1, } }
+        { fields: { reports: {$elemMatch: {time: time}}, spotName: 1, date: 1, } }
         );
 
     if (forecasts.count() === 0) {
@@ -80,7 +80,6 @@ let updateCurrentSpots = function() {
     try {
         spots.fetch().forEach(function (spot) {
             CurrentForecast.insert({
-                spotId: spot._id,
                 spotName: spot.name
             });
         });

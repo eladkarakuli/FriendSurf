@@ -26,7 +26,7 @@ Schemas.Report = new SimpleSchema({
       label: false
     }
   },
-  spotId: {
+  spotName: {
     type: String,
     optional: true,
     autoform: {

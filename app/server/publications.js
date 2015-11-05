@@ -10,6 +10,6 @@ Meteor.publish('reports', function() {
 	return Reports.find();
 });
 
-/*Meteor.publish('reports-by-spot', function(spotId) {
-	return Reports.find({spotId: spotId});
+/*Meteor.publish('reports-by-spot', function(spotName) {
+	return Reports.find({spotName: spotName});
 });*/

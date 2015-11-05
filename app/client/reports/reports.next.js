@@ -3,11 +3,11 @@ angular.module('waveshout').controller('ListReportsCtrl', ['$scope', '$meteor', 
 	function ($scope, $meteor, $stateParams, $location) {
 		$scope.$meteorSubscribe('reports');
 		$scope.reports = $meteor.collection(function() {
-			return Reports.find({ spotId: $stateParams.spotId });
+			return Reports.find({ spotName: $stateParams.spotName });
 		});
 
 		$scope.reportThisSpot = function() {
-			$location.path('/' + $stateParams.spotId);
+			$location.path('/' + $stateParams.spotName);
 		}
 
 		$scope.yesterday = new Date();

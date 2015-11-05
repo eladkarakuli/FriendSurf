@@ -4,7 +4,7 @@
 	<p>Choose a Spot!</p>
 	<div ng-repeat="spot in spots" class="spotList">
 			<div class="spotClass">
-				<a href="/{{spot._id}}">{{spot.name}}</a>
+				<a href="/{{spot.name}}">{{spot.name}}</a>
 			</div>
 	</div>
 </div>
@@ -13,7 +13,7 @@
 <div class="spot-list">
 	<ul ng-repeat="spot in spots" class="">
 		<li class="spot-list-item">
-			<a href="/{{spot._id}}">
+			<a href="/{{spot.name}}">
 				{{spot.name}}
 			</a>
 		</li>

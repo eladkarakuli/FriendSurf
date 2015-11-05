@@ -42,7 +42,7 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
         height: report.height,
         description: report.description,
         date: new Date(),
-        spotId: $stateParams.spotId
+        spotName: $stateParams.spotName
       }); 
       
       vm.options.resetModel();

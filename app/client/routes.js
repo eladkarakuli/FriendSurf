@@ -13,12 +13,12 @@ angular.module('waveshout').config(['$urlRouterProvider', '$stateProvider', '$lo
 			controller: 'ChooseSpotCtrl'
 		})
 		.state('reportList', {
-			url: '/reports/:spotId',
+			url: '/reports/:spotName',
 			templateUrl: 'client/reports/reports.ng.html',
 			controller: 'ListReportsCtrl'
 		})
 		.state('insertReport', {
-			url: '/:spotId',
+			url: '/:spotName',
 			templateUrl: 'client/report-spot/report-spot.ng.html',
 			controller: 'InsertReportCtrl as vm'
 		});
