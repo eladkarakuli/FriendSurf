@@ -6,15 +6,16 @@
 
 <body ng-app="waveshout">
 
-  
-   <div class="container-full">
-	<div class="navigator">
-		<ul>
-			<li class="navigator-item" ><a class="no-link" href="/">Home</a></li>
-			<li  class="navigator-item" ><a class="no-link" href="/choosespot">Spots</a></li> 
-		</ul>	
+	<!-- navigator -->
+	<div class="container-full">
+		<div class="navigator">
+			<ul>
+				<li class="navigator-item" ><a class="no-link" href="/">Home</a></li>
+				<li  class="navigator-item" ><a class="no-link" href="/choosespot">Spots</a></li> 
+			</ul>
+		</div>
+		<blaze-template name="loginButtons"></blaze-template>
 	</div>
- </div>
   
   <!-- view -->
   <div ui-view></div>
