@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <a href="/" class="backBtn">&laquo;Back</a>
-    <button ng-click="isLiked ? unlike() : like()">{{!isLiked && 'Like' || 'Unlike'}}!</button>
-    <span id="spotLikeCounts">{{spot.likes}}</span>
+    <button ng-show="$root.currentUser" ng-click="isLiked ? unlike() : like()">{{!isLiked && 'Like' || 'Unlike'}}!</button>
+    <span class="glyphicon glyphicon-star"></span>
+    <span id="spotLikeCounts">{{spot.likes || 0}}</span>
   </div>
   
 	<table style="padding:5px">
