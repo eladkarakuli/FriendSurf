@@ -11,11 +11,11 @@ Meteor.populateDb = (function() {
 	    fs.createReadStream(spotsCsvPath),
 	      {'escape': '\\'})
 	    .on('record', Meteor.bindEnvironment(function(row, index) {
-	    	Spots.upsert({ name: row[2] }, {
+	    	Spots.upsert({ name: row[2] }, { $set: {
 	    		'lat': row[0],
 	    		'lng': row[1],
 	    		'name': row[2]
-	    	})
+	    	}});
 	      }, function(error) {
 	          console.log('Error in bindEnvironment:', error);
 	      }

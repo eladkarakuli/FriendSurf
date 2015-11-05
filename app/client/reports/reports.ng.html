@@ -1,5 +1,10 @@
 <div class="container">
-<a href="/" class="backBtn">&laquo;Back</a>
+  <div class="row">
+    <a href="/" class="backBtn">&laquo;Back</a>
+    <button ng-click="isLiked ? unlike() : like()">{{!isLiked && 'Like' || 'Unlike'}}!</button>
+    <span id="spotLikeCounts">{{spot.likes}}</span>
+  </div>
+  
 	<table style="padding:5px">
     <tr ng-repeat="report in reports | orderBy: '-date'" class="reportList">
     	<div class="reportClass">
