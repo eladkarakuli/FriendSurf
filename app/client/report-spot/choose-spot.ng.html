@@ -11,8 +11,12 @@
   -->
  
 <div class="spot-list">
-		<ul ng-repeat="spot in spots" class="">
-			<li class="spot-list-item">{{spot.name}}</li>
-		</ul>
+	<ul ng-repeat="spot in spots" class="">
+		<li class="spot-list-item">
+			<a href="/{{spot._id}}">
+				{{spot.name}}
+			</a>
+		</li>
+	</ul>
 </div>
   
