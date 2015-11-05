@@ -33,7 +33,7 @@ angular.module('waveshout').controller('ListReportsCtrl', ['$scope', '$meteor', 
 
 		function setScopeSpot(spotName) {
 			$scope.$meteorSubscribe('spots');
-			$scope.spot = $meteor.object(Spots, {name: spotName}, false);
+			$scope.spot = $scope.$meteorObject(Spots, {name: spotName}, false);
 		}
 
 		function setIsLikedByUser(spotName) {
