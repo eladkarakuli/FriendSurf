@@ -1,4 +1,25 @@
+/*  = = = Color schemes = = =  */
+/* As hex codes */
+
+.color-primary-0 { color: #125454 }	/* Main Primary color */
+.color-primary-1 { color: #4C8888 }
+.color-primary-2 { color: #296D6D }
+.color-primary-3 { color: #033B3B }
+.color-primary-4 { background-color: #002424 }
+
+
+
+.color-lighter-0 { color: #23ADAD }	/* Main Primary color */
+.color-lighter-1 { color: #6FD5D5 }
+.color-lighter-2 { color: #43BFBF }
+.color-lighter-3 { color: #01A1A1 }
+.color-lighter-4 { color: #007777 }
+
+
+
 /* CSS declarations go here */
+
+
 tr.spotList > td {
 	padding-right: 0.9em;
 	padding-bottom: 1em;
@@ -78,20 +99,51 @@ tr.reportList > td {
 	color: inherit;
 }
 
+.v-center {
+  position: relative;
+  transform: translateY(50%);
+}
+
+.align-right{
+	text-align: right;
+}
+
 .container-full {
 	font-family: Arial;
 	width: 100%;
 	height: 100%;
 }
 
+.user-dropdown {
+	color: #23ADAD;
+	font-size: 60px;
+}
+
+ .user-dropdown:active{
+	 color: #43BFBF;
+	font-size: 60px;
+ }
+ 
+
+.user-dropdown:focus {
+	color: #43BFBF;
+	font-size: 60px;
+}
+
+.settings {
+	 color: #23ADAD;
+	font-size: 60px;
+ }
+ 
+ .settings:active{
+	 color: #43BFBF;
+	font-size: 60px;
+ }
+
 .navigator {
-	vertical-align: middle;
-	padding: 0px;
-	margin: 0px;
-	list-style-type: none;
-	text-align: center;
-	height: 20%;
-	background: #00D5FF;
+	background-color: #007777;
+	color: #125454;
+	height: 110px;
 }
 
 .navigator-item {
@@ -111,6 +163,14 @@ tr.reportList > td {
 	cursor: pointer;
 }
 
+.center {
+	text-align: center;
+}
+
+.right{
+	text-align: right;
+}
+
 .spot-list{
 	height: 80%;
 	padding: 10px;
@@ -125,12 +185,12 @@ tr.reportList > td {
 	font-size: 40px;
 	text-align: center;
 	width: 100%;
-	background: #9DD7E3;
+	background-color: #9DD7E3;
 }
 
 
 .spot-list-item:hover {
-	background: #4BAABD;
+	background-color: #4BAABD;
 	cursor: pointer;
 }
 
@@ -165,4 +225,52 @@ tr.reportList > td {
 	display: inline;
 	width: 200px;
 	padding-right: 50px;
+}
+
+.status-list {
+	padding: 13px;
+	
+}
+
+.status-list-item {
+	height: 2em;
+	color: #6FD5D5 ;
+	background-color: #01A1A1;
+	border-radius: 7px;
+	font-size: 65px;
+	
+}
+
+.status-list-item:hover {
+	
+}
+
+.status-list-item:active{
+	background-color: #4C8888 ;
+}
+
+.main-theme-background {
+	background-color: #007777;
+}
+
+.button-report {
+	border-radius: 50px;
+	color: white;
+	font-size: 70px;
+	height: 95px;
+	width:  160px;
+
+}
+
+.button-report:active{
+	background-color: #23ADAD;
+}
+
+.search {
+	-webkit-border-radius: 15px;
+	background-color: #6FD5D5;
+	width: 420px;
+	height: 60px;
+	font-size: 40px;
+	padding: 5px;
 }
