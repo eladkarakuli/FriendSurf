@@ -17,14 +17,17 @@
 
 <div class="container-fluid main-theme-background status-list" ng-repeat="forecast in forecasts">
 	<div class="row-fluid status-list-item" >
-			<div class="col-xs-8">
-				<span class="glyphicon glyphicon-map-marker v-center"></span><a class="no-link" href="/reports/{{forecast.spotName}}">{{forecast.spotName}}</a>
+			<div class="col-xs-7">
+				<span class="glyphicon glyphicon-map-marker "></span><a class="no-link v-center-fix" href="/reports/{{forecast.spotName}}">{{forecast.spotName}}</a>
 			</div>
-			<div class="col-xs-2">
-				<img src="wave2.png" style="height: 30; width: 61;" class="v-center"/>{{forecast.avgSwellHeight}}
+			<div class="col-xs-3">
+				<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> --><p class="v-center-fix no-bold white">{{(forecast.avgSwellHeight / 100) | number:1}}m</p>
 			</div>
 			<div class="col-xs-2"> 
-				<span class="glyphicon glyphicon-user v-center" style="padding-right: 20px;"></span>{{forecast.hourlyReportCount}}
+				<span class="glyphicon glyphicon-user "></span>
+				<p class="v-center-fix reports-mini-icon">
+					<label class="reports-mini-number">{{forecast.hourlyReportCount}}</label>
+				</p>
 			</div>
 		
 	</div>

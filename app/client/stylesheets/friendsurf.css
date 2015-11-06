@@ -18,7 +18,9 @@
 
 
 /* CSS declarations go here */
-
+.no-bold {
+	font-weight: none;
+}
 
 tr.spotList > td {
 	padding-right: 0.9em;
@@ -171,6 +173,16 @@ tr.reportList > td {
 	text-align: right;
 }
 
+.top-hack{
+	margin-top: 10px;
+}
+
+.v-center-fix {
+	display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
 .spot-list{
 	height: 80%;
 	padding: 10px;
@@ -237,8 +249,9 @@ tr.reportList > td {
 	color: #6FD5D5 ;
 	background-color: #01A1A1;
 	border-radius: 7px;
-	font-size: 65px;
-	
+	font-size: 57px;
+	font-weight: bold;
+	line-height:2em;
 }
 
 .status-list-item:hover {
@@ -266,6 +279,10 @@ tr.reportList > td {
 	background-color: #23ADAD;
 }
 
+.white {
+		color: white;
+}
+
 .search {
 	-webkit-border-radius: 15px;
 	background-color: #6FD5D5;
@@ -273,4 +290,24 @@ tr.reportList > td {
 	height: 60px;
 	font-size: 40px;
 	padding: 5px;
+}
+
+.reports-mini-icon {
+	text-align: center;
+	background-color: #43BFBF;
+	color: white;
+	border-radius: 50px;
+	height: 1.4em;
+	width: 1.4em;
+	font-size: 38px;
+	line-height: 48px;
+	top: 7px;
+	position: absolute;
+}
+
+.reports-mini-number{
+	color: white;
+	display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
