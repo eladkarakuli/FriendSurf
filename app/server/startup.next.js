@@ -10,7 +10,7 @@ Meteor.initializeCurrentForecastManagerIntervalBasedSettings = function() {
 Meteor.startup(() => {
 	console.log("populating Data Base with the static data.")
     Meteor.populateDb.loadData(); 
-
+ 
     console.log("Initializing forecast fetcher interval based settings.");
     Meteor.forecastFetcher.initializeFetchingIntervalsBasedSettings();
 

@@ -1,24 +1,39 @@
-<div class="container">
-  <table style="padding:5px">
-      <tr ng-repeat="forecast in forecasts" class="spotList">
-       <div class="spotClass">
-          <td><a href="/reports/{{forecast.spotName}}">{{forecast.spotName}}</a></td>
-          <td>{{forecast.forecastSwellHeight}}</td>
-          <td>{{forecast.reportSwellHeight}}</td>
-        </div>
-      </tr>
-    </table>
+<!-- <div class="container">
+	<table style="padding:5px">
+    <tr ng-repeat="forecast in forecasts" class="spotList">
+    	<div class="spotClass">
+    		<td><a href="/reports/{{forecast.spotId}}">{{forecast.spotName}}</a></td>
+    		<td>{{forecast.forecastSwellHeight}}</td>
+    		<td>{{forecast.reportSwellHeight}}</td>
+    	</div>
+    </tr>
+  </table>
   <div margin="center">
-    <button class="reportBtn" ng-click="report()">Report!</button>
+  <button class="reportBtn" ng-click="report()">Report!</button>
   </div>
-</div>
+</div> -->
 
-<!-- <div class="report-list">
-	<ul ng-repeat="report in reports">
-		<li class="report-list-item">
-			<div class="report-list-sub-item"><span class="glyphicon glyphicon-user" style="padding-right: 20px; padding-left: 20px;"></span>{{report.user}}</div>
+<!-- <div class="report-list-sub-item"><span class="glyphicon glyphicon-user" style="padding-right: 20px; padding-left: 20px;"></span>{{report.user}}</div>
 			<div class="report-list-sub-item"> {{report.spot}}</div>
-			<div class="report-list-sub-item">{{report.waveHeight}}</div>
+			<div class="report-list-sub-item">{{report.waveHeight}}</div> -->
+
+
+<!-- The report object here is only for UI testing purposes -->
+
+<div class="report-list">
+	<ul ng-repeat="spot in spots">
+		<li class="report-list-item">
+			<div class="row-fluid">
+				<div class="col-lg-4 left">
+					<div class="report-list-sub-item"><span class="glyphicon glyphicon-map-marker" style="padding-right: 20px; padding-left: 20px;"></span>{{spot.name}}</div>
+				</div>
+				<div class="col-lg-3 offset3">
+					<div class="report-list-sub-item"> <!-- WHY THE FUCK DOES THE IMAGE NOT SHOW?? --><img src="wave2.png" style="height: 30: width: 61;"/>{{spot.avg}}</div>
+				</div>	
+				<div class="col-lg-3 right">
+					<span class="glyphicon glyphicon-user" style="padding-right: 20px; padding-left: 20px;"></span><div class="report-list-sub-item">{{spot.reports.length}}</div>
+				</div>	
+			</div>	
 		</li>
 	</ul>
-</div> -->
+</div>

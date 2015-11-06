@@ -134,6 +134,10 @@ tr.reportList > td {
 	cursor: pointer;
 }
 
+.spot-list-item:active{
+	background: #4BAABF;
+}
+
 .report-list{
 	height: 80%;
 	padding: 10px;
@@ -141,6 +145,7 @@ tr.reportList > td {
 }
 
 .report-list-item{
+	z-index: 99;
 	border-radius: 4px;
 	font-family: Arial;
 	color: white;
@@ -149,7 +154,7 @@ tr.reportList > td {
 	text-align: left;
 	width: 100%;
 	background: #9DD7E3;
-}
+} 
 
 .report-list-item:hover {
 	background: #4BAABD;

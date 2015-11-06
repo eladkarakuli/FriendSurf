@@ -4,8 +4,13 @@ Meteor.populateDb = (function() {
 	var fs = Meteor.npmRequire('fs');
 
 	let loadData = function () {
-	  var appBasePath = process.env.PWD;
-	  var spotsCsvPath = path.join(appBasePath, '../', '/static/spots.csv');
+	  
+	  // for LINUX
+	 /*  var appBasePath = process.env.PWD;
+	  var spotsCsvPath = path.join(appBasePath, '../', '/static/spots.csv'); */
+	  
+	  // For windows, or to be more accurate - for KAZAK !!!!
+	  var spotsCsvPath =  'C:/Users/DELL/Documents/GitHub/friend-surf/static/spots.csv';
 
 	  CSV().from.stream(
 	    fs.createReadStream(spotsCsvPath),
