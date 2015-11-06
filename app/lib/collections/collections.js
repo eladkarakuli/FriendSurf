@@ -1,5 +1,5 @@
 // Define likeable report
-var Repot = LikeableModel.extend();
+var Reports = LikeableModel.extend();
 Report.prototype._collection = new Mongo.Collection("reports", {
   transform: function(doc) {
     return new Report(doc);
