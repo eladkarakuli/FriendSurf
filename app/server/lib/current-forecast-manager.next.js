@@ -14,9 +14,34 @@ let clearCurrentForecast = function() {
     CurrentForecast.remove({});
 }
 
-let getLastReportbyspotName = function(spotName) {
+let getReportsAverageSwellHeight = function(reports) {
+    if (!reports || !reports.count) {
+        return null;
+    }
+
+    var count = reports.count();
+    var sum = 0;
+
+    if (count == 0) {
+        return null;
+    }
+
+    reports.forEach(function(report) {
+        sum += report.height.toNumber();
+    });
+
+    return sum/count;
+}
+
+/*let getLastReportBySpotName = function(spotName) {
     var latestReport = Reports.findOne({spotName: spotName}, {sort: {date: -1}, limit: 1});
     return latestReport;
+}*/
+
+let getLastHoureReportBySpotName = function(spotName) {
+    var lastHour = Date.create('3 hours ago').format("{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}");
+    return Reports.find({ spotName: spotName, 
+                          date: { $gt: new Date(lastHour) }});
 }
 
 let registerCurrentForecast = function (forecasts) {
@@ -35,11 +60,14 @@ let registerCurrentForecast = function (forecasts) {
 let registerLatestReport = function (spots) {
     try {
         spots.fetch().forEach(function (spot) {
-            var report = getLastReportbyspotName(spot.name);
-            if (report) {
+            var recentReports = getLastHoureReportBySpotName(spot.name);
+            var avgSwellHeight = getReportsAverageSwellHeight(recentReports);
+
+            if (avgSwellHeight) {
+
                 CurrentForecast.update({ spotName: spot.name },
-                    { $set: { reportSwellHeight: report.height,
-                              reportDate: report.date } },
+                    { $set: { avgSwellHeight: avgSwellHeight,
+                              hourlyReportCount: recentReports.count() } },
                     { multi: false, upsert: false }
                 );
             }
