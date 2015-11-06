@@ -27,7 +27,7 @@ let getReportsAverageSwellHeight = function(reports) {
     }
 
     reports.forEach(function(report) {
-        sum += report.height.toNumber();
+        sum += parseInt(report.height);
     });
 
     return sum/count;
@@ -39,7 +39,7 @@ let getReportsAverageSwellHeight = function(reports) {
 }*/
 
 let getLastHoureReportBySpotName = function(spotName) {
-    var lastHour = Date.create('3 hours ago').format("{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}");
+    var lastHour = new Date(); //Date.create('3 hours ago').format("{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}");
     return Reports.find({ spotName: spotName, 
                           date: { $gt: new Date(lastHour) }});
 }

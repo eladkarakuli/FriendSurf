@@ -1,15 +1,7 @@
 {
   "meteor": {},
   "dependencies": {
-    "basePackages": {
-      "sugarjs": {}
-    },
-    "packages": {
-      "sugarjs": {
-        "git": "https://github.com/crapthings/meteor-sugarjs.git",
-        "tag": "v1.4.0.1",
-        "commit": "2841738b2c28d2d97c6cf3c41c4558f59f93db0e"
-      }
-    }
+    "basePackages": {},
+    "packages": {}
   }
 }
