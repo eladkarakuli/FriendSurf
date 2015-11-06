@@ -7,14 +7,22 @@
 <body ng-app="waveshout">
 
 	<!-- navigator -->
-	<div class="container-full">
-		<div class="navigator">
-			<ul>
-				<li class="navigator-item" ><a class="no-link" href="/">Home</a></li>
-				<li  class="navigator-item" ><a class="no-link" href="/choosespot">Report!</a></li> 
-			</ul>
+	<div class="container-fluid navigator">
+		<div class="row-fluid">
+			<div class="col-xs-3">
+				<span class="glyphicon glyphicon-user user-dropdown v-center"></span>
+			</div>
+			<!-- <div class="col-xs-6 center  v-center">
+				<span class="glyphicon glyphicon-bullhorn button-report"></span>
+			</div> -->
+			<div class="col-xs-6 center  v-center">
+				<input type="text" class="search" ng-model="searchBox"/>
+			</div>
+			<div class="col-xs-3 right">
+				<span class="glyphicon glyphicon-cog settings v-center"></span>
+			</div>
 		</div>
-		<blaze-template name="loginButtons"></blaze-template>
+		<!-- <blaze-template name="loginButtons"></blaze-template> -->
 	</div>
   
   <!-- view -->
@@ -23,3 +31,10 @@
 
 <template name="empty">
 </template>
+
+<!-- <div class="navigator">
+			<ul>
+				<li class="navigator-item" ><a class="no-link" href="/">Home</a></li>
+				<li  class="navigator-item" ><a class="no-link" href="/choosespot">Report!</a></li> 
+			</ul>
+		</div> -->
