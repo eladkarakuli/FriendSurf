@@ -7,6 +7,15 @@ function isSpotLikedByUser(spotName) {
 	return spot && user && spot.isLikedBy(user);
 }
 
+function giveLike(likeObj) {
+	var user = Meteor.user();
+
+	if(likeObj && user && !likeObj.isLikedBy(user)) {
+		likeObj.like();
+		Spots.update({name: spotName}, {$inc: { likes: 1 }});
+	}
+}
+
 Meteor.methods({
 	'submitReport': function (report) {
 		console.log('new report:', report);
@@ -15,12 +24,7 @@ Meteor.methods({
 	},
 	'likeSpot': function(spotName) {
 		var spot = Spots.findOne({name: spotName});
-		var user = Meteor.user();
-
-		if(spot && user && !spot.isLikedBy(user)) {
-			spot.like();
-			Spots.update({name: spotName}, {$inc: { likes: 1 }});
-		}
+		giveLike(spot)
 	},
 	'unlikeSpot': function(spotName) {
 		var spot = Spots.findOne({name: spotName});
