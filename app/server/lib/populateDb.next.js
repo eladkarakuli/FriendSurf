@@ -8,7 +8,9 @@ Meteor.populateDb = (function() {
 	  // Get base path based on OS
 	  var isWin = /^win/.test(process.platform);
 	  var appBasePath = isWin ? process.cwd() : process.env.PWD;
-	  var spotsCsvPath = path.join(appBasePath, '../', '/static/spots.csv'); 
+	  var rootFolderPath = isWin ? '..\\..\\..\\..\\..\\..\\' : '../';
+	  var spotsCsvPath = path.join(appBasePath, rootFolderPath, '/static/spots.csv'); 
+	  
 	  
 	  // For windows, or to be more accurate - for KAZAK !!!!
 	  /*var spotsCsvPath =  'C:/Users/DELL/Documents/GitHub/friend-surf/static/spots.csv';*/
