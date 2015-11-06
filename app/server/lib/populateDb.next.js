@@ -5,12 +5,13 @@ Meteor.populateDb = (function() {
 
 	let loadData = function () {
 	  
-	  // for LINUX
-	 /*  var appBasePath = process.env.PWD;
-	  var spotsCsvPath = path.join(appBasePath, '../', '/static/spots.csv'); */
+	  // Get base path based on OS
+	  var isWin = /^win/.test(process.platform);
+	  var appBasePath = isWin ? process.cwd() : process.env.PWD;
+	  var spotsCsvPath = path.join(appBasePath, '../', '/static/spots.csv'); 
 	  
 	  // For windows, or to be more accurate - for KAZAK !!!!
-	  var spotsCsvPath =  'C:/Users/DELL/Documents/GitHub/friend-surf/static/spots.csv';
+	  /*var spotsCsvPath =  'C:/Users/DELL/Documents/GitHub/friend-surf/static/spots.csv';*/
 
 	  CSV().from.stream(
 	    fs.createReadStream(spotsCsvPath),
