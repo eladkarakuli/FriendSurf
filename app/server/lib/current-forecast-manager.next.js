@@ -39,7 +39,7 @@ let getReportsAverageSwellHeight = function(reports) {
 }*/
 
 let getLastHoureReportBySpotName = function(spotName) {
-    var lastHour = new Date(); //Date.create('3 hours ago').format("{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}");
+    var lastHour = Date.create('3 hours ago').format("{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}");
     return Reports.find({ spotName: spotName, 
                           date: { $gt: new Date(lastHour) }});
 }
