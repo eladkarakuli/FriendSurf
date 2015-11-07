@@ -300,6 +300,28 @@ tr.reportList > td {
 	padding: 5px;
 } */
 
+.nav-buttons-container{
+	height: 10vh;
+	width: 100vh;
+}
+
+.nav-button-report {
+	background-color: #43BFBF;
+	color: white;
+	font-size: 7vh;
+	
+}
+
+.nav-button-back {
+	background-color: #01A1A1;
+	color: white;
+	font-size: 7vh;
+}
+
+.full-w{
+	width: 100vh;
+}
+
 .search {
 	-webkit-border-radius: 15px;
 	background-color: #6FD5D5;

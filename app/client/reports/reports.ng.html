@@ -23,8 +23,17 @@
   <button class="reportBtn" ng-click="reportThisSpot()">Report!</button>
   </div>
 </div>-->
-
-<a href="/" class="backBtn">&laquo;Back</a>
+<div class="container-fluid main-theme-background nav-buttons-container full-w">
+	<div class="row-fluid">
+		<div class="col-xs-3 ">
+			<!-- <a class="no-link" href="/">&laquo;Back</a> -->
+			<a class="no-link" href="/"><span class="glyphicon glyphicon-chevron-left center nav-button-back"></span></a> 
+		</div>
+		<div class="col-xs-9 ">
+			<span class="nav-button-report" ng-click="reportThisSpot()">Report</span>
+		</div>
+	</div>
+</div>
 <div class="container-fluid main-theme-background status-list" ng-repeat="report in reports | orderBy:'-date'">
 	<div class="row-fluid status-list-item" >
 			<div class="col-xs-3">
