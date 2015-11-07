@@ -21,7 +21,8 @@
 				<span class="glyphicon glyphicon-map-marker "></span><a class="no-link v-center-fix" href="/reports/{{forecast.spotName}}">{{forecast.spotName}}</a>
 			</div>
 			<div class="col-xs-2">
-				<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> --><p class="v-center-fix no-bold white">{{(forecast.avgSwellHeight / 100) | number:1}}m</p>
+				<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> -->
+				<p class="v-center-fix no-bold white">{{(forecast.avgSwellHeight / 100) | number:1}}{{forecast.avgSwellHeight ? 'm' : 'N/A'}}</p>
 			</div>
 			<div class="col-xs-2"> 
 				<span class="glyphicon glyphicon-user "></span>
