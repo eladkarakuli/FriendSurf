@@ -319,6 +319,13 @@ tr.reportList > td {
 .search-icon:active{
 	color: white;
 }
+.date-label{
+	font-size: 5vw;
+}
+
+.user-label {
+	font-size: 4.3vw;
+}
 
 .reports-mini-icon {
 	text-align: center;

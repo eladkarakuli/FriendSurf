@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <a href="/" class="backBtn">&laquo;Back</a>
     <button ng-show="$root.currentUser" ng-click="isLiked ? unlike() : like()">{{!isLiked && 'Like' || 'Unlike'}}!</button>
@@ -22,4 +22,25 @@
   <div margin="center">
   <button class="reportBtn" ng-click="reportThisSpot()">Report!</button>
   </div>
+</div>-->
+
+<a href="/" class="backBtn">&laquo;Back</a>
+<div class="container-fluid main-theme-background status-list" ng-repeat="report in reports | orderBy:'-date'">
+	<div class="row-fluid status-list-item" >
+			<div class="col-xs-3">
+				<span class="glyphicon glyphicon-map-time "></span><span class="v-center-fix date-label" >{{report.date | date:'HH:mm' }}</span>
+			</div>
+			<div class="col-xs-2">
+				<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> -->
+				<span class="v-center-fix no-bold white">{{report.height / 100 | number:1}}m</span>
+			</div>
+			<div class="col-xs-3"> 
+				<!-- <span class="glyphicon glyphicon-user "></span> --><span class="v-center-fix user-label" >{{report.reporter}}</span>
+			</div>
+			<div class="col-xs-4"> 
+				<span class="v-center-fix" >{{report.description}}</span>
+			</div>
+			
+		
+	</div>
 </div>
