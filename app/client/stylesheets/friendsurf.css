@@ -349,6 +349,12 @@ tr.reportList > td {
 	font-size: 4.3vw;
 }
 
+.report-description{
+	background-color: #23ADAD;
+	font-size: 5vw;
+	color: White;
+}
+
 .reports-mini-icon {
 	text-align: center;
 	background-color: #43BFBF;
