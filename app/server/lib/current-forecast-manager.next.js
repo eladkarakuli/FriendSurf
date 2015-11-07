@@ -27,7 +27,7 @@ let getReportsAverageSwellHeight = function(reports) {
     }
 
     reports.forEach(function(report) {
-        sum += parseInt(report.height);
+        sum += report.height.toNumber();
     });
 
     return sum/count;

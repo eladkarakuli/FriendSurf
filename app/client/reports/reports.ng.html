@@ -1,9 +1,9 @@
 <!--<div class="container">
   <div class="row">
     <a href="/" class="backBtn">&laquo;Back</a>
-    <button ng-show="$root.currentUser" ng-click="isLiked ? unlike() : like()">{{!isLiked && 'Like' || 'Unlike'}}!</button>
+    <blaze-template name="favoriteButtonSpot"></blaze-template>
     <span class="glyphicon glyphicon-star"></span>
-    <span id="spotLikeCounts">{{spot.likes || 0}}</span>
+    <span><blaze-template name="favoriteCountSpot"></blaze-template></span>
   </div>
   
 	<table style="padding:5px">
@@ -16,6 +16,11 @@
         <td>{{report.height}}m</td>
         <td>{{report.reporter}}</td>
     		<td>{{report.description}}</td>
+        <td>
+          <blaze-template name="favoriteButtonReport"></blaze-template>
+          <span class="glyphicon glyphicon-star"></span>
+          <span><blaze-template name="favoriteCountReport"></blaze-template></span>
+        </td>
     	</div>
     </tr>
   </table>

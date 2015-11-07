@@ -3,25 +3,18 @@
 angular.module('waveshout').controller('ListReportsCtrl', ['$scope', '$meteor', '$stateParams', '$location',
 
 	function ($scope, $meteor, $stateParams, $location) {
+		$scope.cacheReportLikes = {};
+
 		$scope.$meteorSubscribe('reports');
+		$scope.$meteorSubscribe('favorites');
 		$scope.reports = $meteor.collection(function() {
 			return Reports.find({ spotName: $stateParams.spotName });
 		});
 
 		setScopeSpot($stateParams.spotName);
 
-		setIsLikedByUser($stateParams.spotName);
-
 		$scope.reportThisSpot = function() {
 			$location.path('/' + $stateParams.spotName);
-		}
-
-		$scope.like = function() {
-			toggleLikeAndRefreshIsLiked('likeSpot');
-		}
-
-		$scope.unlike = function() {
-			toggleLikeAndRefreshIsLiked('unlikeSpot');
 		}
 
 		$scope.yesterday = new Date();
@@ -34,22 +27,6 @@ angular.module('waveshout').controller('ListReportsCtrl', ['$scope', '$meteor', 
 		function setScopeSpot(spotName) {
 			$scope.$meteorSubscribe('spots');
 			$scope.spot = $scope.$meteorObject(Spots, {name: spotName}, false);
-		}
-
-		function setIsLikedByUser(spotName) {
-			$meteor.call('isSpotLikedByUser', spotName).then(
-				function(isLiked) {
-					$scope.isLiked = isLiked;
-				},
-				function(err) {
-					console.log("faild getting isLiked", err);
-				}
-			);
-		}
-
-		function toggleLikeAndRefreshIsLiked(methodName) {
-			$meteor.call(methodName, $stateParams.spotName);
-			setIsLikedByUser($stateParams.spotName);
 		}
 	}
 ]);
