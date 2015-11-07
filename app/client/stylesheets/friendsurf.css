@@ -15,6 +15,9 @@
 .color-lighter-3 { color: #01A1A1 }
 .color-lighter-4 { color: #007777 }
 
+.body {
+	height: 100vh;
+}
 
 
 /* CSS declarations go here */
@@ -118,34 +121,35 @@ tr.reportList > td {
 
 .user-dropdown {
 	color: #23ADAD;
-	font-size: 60px;
+	font-size: 7vh;
 }
 
  .user-dropdown:active{
 	 color: #43BFBF;
-	font-size: 60px;
+	
  }
  
 
 .user-dropdown:focus {
 	color: #43BFBF;
-	font-size: 60px;
+	
 }
 
 .settings {
+
 	 color: #23ADAD;
-	font-size: 60px;
+	font-size: 7vh;
  }
  
  .settings:active{
 	 color: #43BFBF;
-	font-size: 60px;
+	
  }
 
 .navigator {
 	background-color: #007777;
 	color: #125454;
-	height: 110px;
+	height: 15vh;
 }
 
 .navigator-item {
@@ -171,6 +175,10 @@ tr.reportList > td {
 
 .right{
 	text-align: right;
+}
+
+.left{
+	text-align: left;
 }
 
 .top-hack{
@@ -240,18 +248,18 @@ tr.reportList > td {
 }
 
 .status-list {
-	padding: 13px;
+	padding: 1.4vh;
 	
 }
 
 .status-list-item {
-	height: 2em;
+	height: 3em;
 	color: #6FD5D5 ;
 	background-color: #01A1A1;
 	border-radius: 7px;
-	font-size: 57px;
+	font-size: 5.3vw;
 	font-weight: bold;
-	line-height:2em;
+	line-height:3.1em;
 }
 
 .status-list-item:hover {
@@ -283,13 +291,33 @@ tr.reportList > td {
 		color: white;
 }
 
-.search {
+/* .search {
 	-webkit-border-radius: 15px;
 	background-color: #6FD5D5;
 	width: 420px;
 	height: 60px;
 	font-size: 40px;
 	padding: 5px;
+} */
+
+.search {
+	-webkit-border-radius: 15px;
+	background-color: #6FD5D5;
+	width: 50vw;
+	height: 7vh;
+	font-size: 5vh;
+	padding: 5px;
+}
+
+.search-icon {
+	
+	color: #6FD5D5;
+	font-size: 7vh;
+	padding: 5px;
+}
+
+.search-icon:active{
+	color: white;
 }
 
 .reports-mini-icon {
@@ -299,10 +327,11 @@ tr.reportList > td {
 	border-radius: 50px;
 	height: 1.4em;
 	width: 1.4em;
-	font-size: 38px;
-	line-height: 48px;
-	top: 7px;
+	font-size: 5vw;
+	line-height: 5vh;
+	top: 1vw;
 	position: absolute;
+	right: 1.5vw;
 }
 
 .reports-mini-number{
