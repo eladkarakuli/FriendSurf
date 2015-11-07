@@ -1,8 +1,9 @@
-angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor', '$stateParams',
+angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor', '$stateParams',  '$location', '$timeout',
 
-  function ($scope, $meteor, $stateParams) {
+  function ($scope, $meteor, $stateParams, $location, $timeout) {
     $scope.$meteorSubscribe('reports');
     $scope.reports = $meteor.collection(Reports);
+    $scope.messages = {};
 
   	var vm = this;
   	vm.user = {};
@@ -37,15 +38,22 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
   	}];
          
     vm.submit = function(report) {
-      $meteor.call('submitReport', {
+      var newReport = {
         reporter: report.reporter,
         height: report.height,
         description: report.description,
         date: new Date(),
         spotName: $stateParams.spotName
-      }); 
-      
-      vm.options.resetModel();
+      };
+      $meteor.call('submitReport', newReport).then(
+        function(valid) {
+          $scope.messages.success = "Thank you!";
+          $timeout(() => $location.path('/reports/' + $stateParams.spotName), 1000);
+        },
+        function(err) {
+          $scope.messages.error = err.details;
+        }
+      );
     }
   }
 ]);

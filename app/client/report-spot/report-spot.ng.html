@@ -1,4 +1,10 @@
 <a href="/" class="backBtn">&laquo;Back</a>
+<div class="alert alert-success" ng-show="messages.success">
+  <strong>{{messages.success}}</strong>
+</div>
+<div class="alert alert-danger" ng-show="messages.error">
+  <strong>{{messages.error}}</strong>
+</div>
 <div class="reportForm">
 	<formly-form model="vm.user" fields="vm.fields" options="vm.options">
 	    <button type="submit" ng-disabled="vm.someForm.$invalid" ng-click="vm.submit(vm.user)">Submit</button>
