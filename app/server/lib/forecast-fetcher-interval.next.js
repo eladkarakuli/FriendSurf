@@ -1,19 +1,58 @@
 "use strict";
 
-Meteor.forecastFetcher = (function() {
+Meteor.fetchingPoolManager = (function() {
 
 let fetchList = [];
 
+let isSpotUpdated = function(spotName) {
+	var hourAgo = Date.create('1 hour ago');
+	var recentForecast = Forecasts.findOne({spotName: spotName, 
+		date: new Date().format("{yyyy}-{MM}-{dd}"),
+		requestDate: {$gt: hourAgo}
+	});
+
+	return recentForecast !== undefined;
+}
+
 let fetchForecastHandler = function(url, spotName) {
-	Meteor.call('fetchForecast', url,
-		(error, result) => { 
-			error === undefined ? Meteor.call('saveForecast', result, spotName) : console.log("err " + error + " res " + result); 
-		}
-	);
+	//stop handling fetch when spot is alredy up-to-date
+	if (isSpotUpdated(spotName)) {
+		return;
+	}
+
+	try {
+		console.log("Fetching forecast for ", spotName);
+		Meteor.forecastFetcher.fetch(url).then(
+			function(result) {
+				Meteor.forecastFetcher.saveFetch(result, spotName);
+			},
+			function(error) {
+				console.log("Faild to fetch ", url, spotName, error.message);
+			}
+		);
+	}
+	catch(error) {
+		console.log("Error while fetching forecast", error.message);
+	}
 }
 
 let validateTodayFetch = function() {
 	return Forecasts.find({date: new Date().toJSON().slice(0,10)}).count() === 0;
+}
+
+let addFetchInterval = function(spotName, url) {
+		console.log('Setting fetch interval for ', spotName, url);
+		fetchList.push(() => { fetchForecastHandler(url, spotName); });
+}
+
+let generateUrl = function(spot, apiBaseUrl, apiKey) {
+	let params = {
+		lat: spot.lat,
+		lng: spot.lng,
+		key: apiKey
+	},
+	baseUrl = apiBaseUrl;
+	return Meteor.forecastApiUrlGenerator.generate(baseUrl, params);
 }
 
 let runFetch = function() {
@@ -26,17 +65,13 @@ let initializeFetchingIntervals = function(apiBaseUrl, apiKey, interval = 360000
 
 	let spots = Spots.find({}).fetch();
 	spots.forEach(function (spot) {
-		let params = {
-			lat: spot.lat,
-			lng: spot.lng,
-			key: apiKey
-		},
-		baseUrl = apiBaseUrl;
-
-		let url = Meteor.forecastApiUrlGenerator.generate(baseUrl, params);
-		console.log('url: ' + url);
-		console.log('id:' + spot.name);
-		fetchList.push(() => { fetchForecastHandler(url, spot.name); });
+		try{
+			let url = generateUrl(spot, apiBaseUrl, apiKey);
+			addFetchInterval(spot.name, url);
+		}
+		catch(error) {
+			console.log("Could not initialize fetch interval for ", url, error.message);
+		}
 	});
 	
 	Meteor.setInterval(() => { runFetch() } , interval);

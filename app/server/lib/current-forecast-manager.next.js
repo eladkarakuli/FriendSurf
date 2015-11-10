@@ -123,10 +123,8 @@ time - 0 as midnight, 0300 as 3am, 1200 as 12pm, 2100 as 9pm ect.
 let updateCurrentForecastAndLatestReport = function(date, time) {
     checkLastUpdate();
     clearCurrentForecast();
-
-    var hour = new Date().getHours();
-    date = date || new Date().toJSON().slice(0,10)
-    time = time || (Math.floor(hour/3)*300).toString();
+    date = date || Date.create().format("{yyyy}-{MM}-{dd}");
+    time = time || (Math.floor(Date.create().format('{HH}')/3)*300).toString();
 
     updateCurrentSpots();
     updateForecasts(date, time);

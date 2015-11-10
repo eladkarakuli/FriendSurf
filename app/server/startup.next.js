@@ -12,11 +12,11 @@ Meteor.startup(() => {
     Meteor.populateDb.loadData(); 
  
     console.log("Initializing forecast fetcher interval based settings.");
-    Meteor.forecastFetcher.initializeFetchingIntervalsBasedSettings();
+    Meteor.fetchingPoolManager.initializeFetchingIntervalsBasedSettings();
 
     // don't wait for first interval and run immediate: 
     console.log("Running fetch...");
-    Meteor.forecastFetcher.runFetch();
+    Meteor.fetchingPoolManager.runFetch();
 
     console.log("Initializing current forecast manager based settings.");
     Meteor.initializeCurrentForecastManagerIntervalBasedSettings();

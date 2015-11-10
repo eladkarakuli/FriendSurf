@@ -1,55 +1,65 @@
 "use strict";
 
-let fetcher = function(caller, url){
-    check(url, String);
-    let that = caller;
-    that.unblock();
-    
-    try {
-        let result = Meteor.http.get(url, {timeout:10000});
+Meteor.forecastFetcher = (function() {
 
-        if (result !== undefined && result.statusCode === 200) {
-            var respJson = JSON.parse(result.content);
-            return respJson;
-        } else if (result !== undefined) {
-            var errorJson = JSON.parse(result.content);
-            throw(result.statusCode + " " + errorJson.error);
-        } else {
-            throw("No response while fetching forecast!") 
-        }
-    } catch (e) {
-        // Got a network error, time-out or HTTP error in the 400 or 500 range.
-        console.error(e);
-        return undefined;
-    }
-};
+    let fetcher = function(caller, url){
+        check(url, String);
 
-let interpreteData = function(data) {
-    let forecast = Meteor.call('interpreteForecast', data);
-    if (forecast === undefined) {
-        throw("faild to interprete data: " + data);
-    }
+        return new Promise(
+            function(resolve, reject) {
+            try {
+                let result = Meteor.http.get(url, {timeout:10000});
 
-    return forecast;
-};
+                if (result !== undefined && result.statusCode === 200) {
+                    var respJson = JSON.parse(result.content);
+                    resolve(respJson);
+                } else if (result !== undefined) {
+                    var errorJson = JSON.parse(result.content);
+                    throw(result.statusCode + " " + errorJson.error);
+                } else {
+                    throw("No response while fetching forecast!") 
+                }
+            } catch (err) {
+                // Got a network error, time-out or HTTP error in the 400 or 500 range.
+                reject(err);
+            }
+        });
+    };
 
-Meteor.methods({ 
-    fetchForecast: function(url) { return fetcher(this, url); }
-});
-
-Meteor.methods({ saveForecast: (respJson, spotName) => {
-    console.log(respJson + ' - ' + spotName)
-    try {
-        if (respJson === undefined || !_.has(respJson, 'data')) {
-            debugger;
-            throw("Faild to save a bad response: " + respJson);
+    let interpreteData = function(data) {
+        let forecast = Meteor.wwoInterpreter.interpreteForecast(data);
+        
+        if (forecast === undefined) {
+            throw("faild to interprete data: " + data);
         }
 
-        let forecast = interpreteData(respJson);
-        forecast.spotName = spotName;
-        Forecasts.upsert({spotName: forecast.spotName, date: forecast.date}, forecast);
+        return forecast;
+    };
+
+    let appendDate  = function(respJson) {
+        return _.extend({requestDate: new Date()} ,respJson);
     }
-    catch (e) {
-        console.error(e);
+
+    return {
+        fetch: function(url) {
+         return fetcher(this, url);
+        },
+        saveFetch: (respJson, spotName) => {
+            try {
+                if (respJson === undefined || !_.has(respJson, 'data')) {
+                    console.log();
+                    throw('[' + respJson.responseStatus + ']Faild to save response for spot: ' +spotName);
+                }
+
+                let forecast = interpreteData(respJson);
+                forecast = appendDate(forecast)
+                forecast.spotName = spotName;
+                Forecasts.upsert({spotName: forecast.spotName, date: forecast.date}, forecast);
+            }
+            catch (e) {
+                console.error(e);
+            }
+        },
+        
     }
-}});
+})();
