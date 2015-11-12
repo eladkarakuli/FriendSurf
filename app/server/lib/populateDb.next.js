@@ -3,17 +3,49 @@
 Meteor.populateDb = (function() {
 	var fs = Meteor.npmRequire('fs');
 
+	let addSpot = function(spot) {
+		debugger;
+		Spots.upsert({ name: spot.name }, { $set: {
+			'lat': spot.lat,
+			'lng': spot.lng,
+			'name': spot.name
+		}});
+	}
+
+	let LoadSpotsGithubFallback = function() {
+		let result = Meteor.http.get('https://raw.githubusercontent.com/eladkarakuli/friend-surf/master/static/spots.csv');
+		if (result !== undefined && result.statusCode === 200) {
+	  		let spots = JSON.parse(result.content);
+	  		_.each(spots, addSpot);
+	  		return _.size(spots);
+	  	}
+
+	  	return undefined;
+	}
+
+	let isFileFound = function(path) {
+		return fs.existsSync(path);
+	}
+
+	let getSpotsCsvPath = function() {
+		// Get base path based on OS
+		var isWin = /^win/.test(process.platform);
+		var appBasePath = isWin ? process.cwd() : process.env.PWD;
+		var rootFolderPath = isWin ? '..\\..\\..\\..\\..\\..\\' : '../';
+		return path.join(appBasePath, rootFolderPath, '/static/spots.csv'); 
+	}
+
 	let loadData = function () {
-	  
-	  // Get base path based on OS
-	  var isWin = /^win/.test(process.platform);
-	  var appBasePath = isWin ? process.cwd() : process.env.PWD;
-	  var rootFolderPath = isWin ? '..\\..\\..\\..\\..\\..\\' : '../';
-	  var spotsCsvPath = path.join(appBasePath, rootFolderPath, '/static/spots.csv'); 
-	  
-	  
-	  // For windows, or to be more accurate - for KAZAK !!!!
-	  /*var spotsCsvPath =  'C:/Users/DELL/Documents/GitHub/friend-surf/static/spots.csv';*/
+	  var spotsCsvPath = getSpotsCsvPath();
+	  var found = isFileFound(spotsCsvPath);
+
+	  debugger;
+	  if (!found) {
+	  	console.log('failed to find spots.csv file, using github as fallback...');
+	  	count = LoadSpotsGithubFallback();	  	
+	  	console.log(count ? count + 'spots read and update DB' : 'failed to use github as a fallback!');
+	  	return;
+	  }
 
 	  CSV().from.stream(
 	    fs.createReadStream(spotsCsvPath),
