@@ -1,9 +1,1 @@
-{ "_id" : "4sKjWxEkELZEizeFE", "name" : "Bat-Yam", "lat" : "32.015233", "lng" : "34.736852" }
-{ "_id" : "5WyN5wTtEkdBa2Wgs", "lat" : "32.166227", "lng" : "34.796898", "name" : "הרצליה", "likes" : 1 }
-{ "_id" : "AMQ5guQ7fTzgHvyRX", "lat" : "32.015233", "lng" : "34.736852", "name" : "בת ים", "likes" : 2 }
-{ "_id" : "CRBXXknGH6k3Jnnof", "name" : "Hilton", "lat" : "32.087933", "lng" : "34.76901" }
-{ "_id" : "D5tjy2J5CjT623p7M", "name" : "Herzliya-Nechim", "lat" : "32.166227", "lng" : "34.796898" }
-{ "_id" : "aMDyrMq6Rmna6gY62", "name" : "Zvulun", "lat" : "32.166227", "lng" : "34.796898" }
-{ "_id" : "c4DNuc7e2yfaeMqrA", "name" : "Palmachim", "lat" : "32.166227", "lng" : "34.796898" }
-{ "_id" : "mqeAPYphbB9ngfpzw", "name" : "Haifa-Backdoor", "lat" : "32.166227", "lng" : "34.796898" }
-{ "_id" : "wZt6Zp5FKc7djq7td", "lat" : "32.087933", "lng" : "34.76901", "name" : "הילטון", "likes" : 1 }
+[{ "_id" : "4sKjWxEkELZEizeFE", "name" : "Bat-Yam", "lat" : "32.015233", "lng" : "34.736852" },{ "_id" : "5WyN5wTtEkdBa2Wgs", "lat" : "32.166227", "lng" : "34.796898", "name" : "הרצליה", "likes" : 1 },{ "_id" : "AMQ5guQ7fTzgHvyRX", "lat" : "32.015233", "lng" : "34.736852", "name" : "בת ים", "likes" : 2 },{ "_id" : "CRBXXknGH6k3Jnnof", "name" : "Hilton", "lat" : "32.087933", "lng" : "34.76901" },{ "_id" : "D5tjy2J5CjT623p7M", "name" : "Herzliya-Nechim", "lat" : "32.166227", "lng" : "34.796898" },{ "_id" : "aMDyrMq6Rmna6gY62", "name" : "Zvulun", "lat" : "32.166227", "lng" : "34.796898" },{ "_id" : "c4DNuc7e2yfaeMqrA", "name" : "Palmachim", "lat" : "32.166227", "lng" : "34.796898" },{ "_id" : "mqeAPYphbB9ngfpzw", "name" : "Haifa-Backdoor", "lat" : "32.166227", "lng" : "34.796898" },{ "_id" : "wZt6Zp5FKc7djq7td", "lat" : "32.087933", "lng" : "34.76901", "name" : "הילטון", "likes" : 1 }]

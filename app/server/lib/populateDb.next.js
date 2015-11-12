@@ -13,7 +13,7 @@ Meteor.populateDb = (function() {
 	}
 
 	let LoadSpotsGithubFallback = function() {
-		let result = Meteor.http.get('https://raw.githubusercontent.com/eladkarakuli/friend-surf/master/static/spots.csv');
+		let result = Meteor.http.get('https://raw.githubusercontent.com/eladkarakuli/friend-surf/test-githubpopulation/static/spots.json');
 		if (result !== undefined && result.statusCode === 200) {
 	  		let spots = JSON.parse(result.content);
 	  		_.each(spots, addSpot);
