@@ -4,7 +4,6 @@ Meteor.populateDb = (function() {
 	var fs = Meteor.npmRequire('fs');
 
 	let addSpot = function(spot) {
-		debugger;
 		Spots.upsert({ name: spot.name }, { $set: {
 			'lat': spot.lat,
 			'lng': spot.lng,
@@ -39,10 +38,9 @@ Meteor.populateDb = (function() {
 	  var spotsCsvPath = getSpotsCsvPath();
 	  var found = isFileFound(spotsCsvPath);
 
-	  debugger;
 	  if (!found) {
 	  	console.log('failed to find spots.csv file, using github as fallback...');
-	  	count = LoadSpotsGithubFallback();	  	
+	  	var count = LoadSpotsGithubFallback();	  	
 	  	console.log(count ? count + 'spots read and update DB' : 'failed to use github as a fallback!');
 	  	return;
 	  }
