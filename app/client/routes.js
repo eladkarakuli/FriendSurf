@@ -17,6 +17,11 @@ angular.module('waveshout').config(['$urlRouterProvider', '$stateProvider', '$lo
 			templateUrl: 'client/reports/reports.ng.html',
 			controller: 'ListReportsCtrl'
 		})
+		.state('userInterface', {
+			url: '/user',
+			templateUrl: 'client/user-interface/user-interface.ng.html',
+			controller: 'userInterfaceCtrl'
+		})
 		.state('insertReport', {
 			url: '/:spotName',
 			templateUrl: 'client/report-spot/report-spot.ng.html',
