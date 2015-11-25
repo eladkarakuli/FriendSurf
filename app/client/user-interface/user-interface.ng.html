@@ -1,0 +1,74 @@
+
+<!-- LOGIN SCREEN -->
+<div class="" ng-hide="$root.currentUser">
+
+
+
+<!-- Login form -->
+	<div class="container-fluid main-theme-background status-list">
+		<!-- Create new user -->
+		<div class="row-fluid status-list-item" >
+				
+				<div class="col-xs-12 center">
+					<span class="login-button" ng-click="doRegister()">Create new account</span>
+				</div>
+		</div>
+		
+		<div class="row-fluid" >
+			<div class="col-xs-12 center white">|</div>
+		</div>
+		<br>
+		<div class="row-fluid" >
+			<div class="col-xs-12 center white">|</div>
+		</div>
+		<br><br>
+		<div class="row-fluid status-list-item" >
+				<div class="col-xs-2">
+					<span class="glyphicon glyphicon-user "></span>
+				</div>
+				<div class="col-xs-10">
+					<input type="text" class="login-field" ng-model="loginUser"/>
+				</div>
+		</div>
+	<br>
+
+		<div class="row-fluid status-list-item" >
+				<div class="col-xs-2">
+					<span class="glyphicon glyphicon-lock "></span>
+				</div>
+				<div class="col-xs-10">
+					<input type="password" class="login-field" ng-model="loginPasswd"/>
+				</div>
+		</div>
+		<br>
+		<div class="row-fluid status-list-item " >
+				
+				<div class="col-xs-12 center">
+					<span class="login-button" ng-click="doLogin()">Login</span>
+				</div>
+		</div>
+	</div>
+
+	<!-- Messages -->
+	<div class="alert alert-success" ng-show="messages.success">
+	  <strong>{{messages.success}}</strong>
+	</div>
+	<div class="alert alert-danger" ng-show="messages.error">
+	  <strong>{{messages.error}}</strong>
+	</div>
+
+</div>
+
+
+
+<!-- User interface-->
+<div class="v-center" ng-show="$root.currentUser">
+	<div class="container-fluid main-theme-background status-list">
+		<label class="white">Hi, {{$root.currentUser.username}}</label>
+		<div class="row-fluid status-list-item" >
+			<div class="col-xs-12 center">
+					<span class="login-button" ng-click="doLogout()">Logout</span>
+				</div>
+		</div>
+	</div>
+</div>

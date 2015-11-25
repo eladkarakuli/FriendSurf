@@ -8,27 +8,31 @@
 <body ng-app="waveshout">
 
 	<!-- navigator -->
-	<div class="container-fluid navigator">
+	<div class="container-fluid navigator full-screen">
 		<div class="row-fluid">
 			<div class="col-xs-3">
-				<span class="glyphicon glyphicon-user user-dropdown v-center"></span>
+				<span class="glyphicon glyphicon-user user-dropdown v-center" ui-sref="userInterface"></span>
 			</div>
 			<!-- <div class="col-xs-6 center  v-center">
 				<span class="glyphicon glyphicon-bullhorn button-report"></span>
 			</div> -->
 			<div class="col-xs-6 center  v-center">
 				<!-- <input type="text" class="search" ng-model="searchBox"/> -->
-				<span class="glyphicon glyphicon-search search-icon"></span>
+				<span class="glyphicon glyphicon-tint main-icon" ui-sref="spotsList"></span>
 			</div>
 			<div class="col-xs-3 right">
 				<span class="glyphicon glyphicon-cog settings v-center"></span>
 			</div>
 		</div>
-		<!-- <blaze-template name="loginButtons"></blaze-template> -->
+		
+		
+		<br><br><Br><br><br>
+	  <!-- view -->
+	  <div ui-view></div>
+
+
 	</div>
   
-  <!-- view -->
-  <div ui-view></div>
 </body>
 
 <template name="empty">

@@ -17,8 +17,16 @@
 
 .body {
 	height: 100vh;
+	width: 100vw;
+	bottom:0;
+	left:0;
+	top:0;
+	right:0;
 }
 
+input:focus, input {
+	outline:0;
+}
 
 /* CSS declarations go here */
 .no-bold {
@@ -70,6 +78,7 @@ tr.reportList > td {
 	color: #000000;
     text-decoration: none;
 }
+
 
 .button-back{
 	display: inline-block;
@@ -331,14 +340,14 @@ tr.reportList > td {
 	padding: 5px;
 }
 
-.search-icon {
+.main-icon {
 	
 	color: #6FD5D5;
 	font-size: 7vh;
 	padding: 5px;
 }
 
-.search-icon:active{
+.main-icon:active{
 	color: white;
 }
 .date-label{
@@ -375,3 +384,46 @@ tr.reportList > td {
     vertical-align: middle;
     line-height: normal;
 }
+
+.full-screen {
+	position: relative;
+	top: 0;
+	left: 0;
+	bottom:0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.z-high {
+	z-index: 999;
+}
+
+.middle{
+	margin-bottom: 20vh;
+}
+
+
+
+/* LOGIN screen CSS */
+.login-field{
+	line-height: 2em;
+	height: 2em;
+	width: 100%;
+	border-radius: 5px;
+	color: #294142;
+	font-size: 6.5vw;
+	padding: 4%;
+	border: none;
+
+}
+
+.login-field:focus {
+	background-color: #DEF2FF;
+}
+
+.login-button {
+
+	font-size: 7.5vw;
+	color: white;
+}
+
