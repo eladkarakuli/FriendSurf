@@ -1,18 +1,32 @@
-<!-- LOGIN SCREEN -->
+<!-- NAV -->
+<div class="status-list">
+	<div class="row-fluid status-list-item">
+		<div class="col-xs-3 center button-back" ui-sref="reportList({spotName: $stateParams.spotName})">
+			<!-- <a class="no-link" href="/">&laquo;Back</a> -->
+			<span class="glyphicon glyphicon-chevron-left center" ></span> 
+		</div>
+		<div class="col-xs-9 center button-report" ng-disabled="vm.someForm.$invalid" ng-click="vm.submit(vm.user)">
+			<span class="white" >Submit Report</span>
+		</div>
+	</div>
+</div>
 
 
 
 
 <!-- Main report view -->
-<a href="/" class="backBtn">&laquo;Back</a>
+<div class="container-fluid status-list">
+	<div class="reportForm white">
+		<div class="col-xs-12" >
+			<formly-form model="vm.user" fields="vm.fields" options="vm.options">
+			</formly-form>
+		</div>
+	</div>
+</div>
+<!-- Messages -->
 <div class="alert alert-success" ng-show="messages.success">
   <strong>{{messages.success}}</strong>
 </div>
 <div class="alert alert-danger" ng-show="messages.error">
   <strong>{{messages.error}}</strong>
-</div>
-<div class="reportForm">
-	<formly-form model="vm.user" fields="vm.fields" options="vm.options">
-	    <button type="submit" ng-disabled="vm.someForm.$invalid" ng-click="vm.submit(vm.user)">Submit</button>
-	</formly-form>
 </div>

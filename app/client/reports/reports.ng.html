@@ -28,20 +28,20 @@
   <button class="reportBtn" ng-click="reportThisSpot()">Report!</button>
   </div>
 </div>-->
-<div class="container-fluid main-theme-background nav-buttons-container full-w">
-	<div class="row-fluid">
-		<div class="col-xs-3 ">
+<div class="status-list">
+	<div class="row-fluid status-list-item">
+		<div class="col-xs-3 center button-back" ui-sref="spotsList">
 			<!-- <a class="no-link" href="/">&laquo;Back</a> -->
-			<a class="no-link" href="/"><span class="glyphicon glyphicon-chevron-left center nav-button-back"></span></a> 
+			<span class="glyphicon glyphicon-chevron-left center" ></span> 
 		</div>
-		<div class="col-xs-9 ">
-			<span class="nav-button-report" ng-click="reportThisSpot()">Report</span>
+		<div class="col-xs-9 center button-report" ng-click="reportThisSpot()">
+			<span class="white" >Add Report</span>
 		</div>
 	</div>
 </div>
-<div class="container-fluid main-theme-background status-list" ng-repeat="report in reports | orderBy:'-date'">
+<div class="container-fluid status-list scroll" ng-repeat="report in reports | orderBy:'-date'">
 	<div class="row-fluid status-list-item" >
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<span class="glyphicon glyphicon-time date-label" style="padding-right: 1vh;"></span><span class="v-center-fix date-label" >{{report.date | date:'HH:mm' }}</span>
 			</div>
 			<div class="col-xs-3">
@@ -56,9 +56,10 @@
 				<span class="v-center-fix" >{{report.description}}</span>
 			</div>
 			<div class="col-xs-3">
-				<blaze-template name="favoriteButtonReport"></blaze-template>
 				<span class="glyphicon glyphicon-star"></span>
 				<span><blaze-template name="favoriteCountReport"></blaze-template></span>
+				<!-- <blaze-template name="favoriteButtonReport"></blaze-template> -->
+				
 			</div>
 	</div>
 			

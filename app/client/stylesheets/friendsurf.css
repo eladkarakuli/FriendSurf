@@ -15,6 +15,11 @@
 .color-lighter-3 { color: #01A1A1 }
 .color-lighter-4 { color: #007777 }
 
+html, body {
+	overflow-x: hidden;
+
+}
+
 .body {
 	height: 100vh;
 	width: 100vw;
@@ -22,6 +27,7 @@
 	left:0;
 	top:0;
 	right:0;
+	position: relative;
 }
 
 input:focus, input {
@@ -80,14 +86,9 @@ tr.reportList > td {
 }
 
 
+
 .button-back{
-	display: inline-block;
-	text-align: center;
-	background-color: #00B3FF;
-	color: white;
-	display:block;
-	height: 40px;
-	width: 80px;
+	background-color: #296D6D;
 }
 
 .button-back:hover{
@@ -155,10 +156,26 @@ tr.reportList > td {
 	
  }
 
+.navigator-fixed {
+	background-color: #007777;
+	position: fixed;
+	z-index: 99;
+}
+
+.bg-fixed {
+	background-color: #007777;
+	position: fixed;
+	z-index: -999;
+	height: 100%;
+	width:100%;
+}
+
 .navigator {
+	width: 100vw;
 	background-color: #007777;
 	color: #125454;
-	height: 15vh;
+	height: 88px;
+
 }
 
 .navigator-item {
@@ -266,7 +283,7 @@ tr.reportList > td {
 	color: #6FD5D5 ;
 	background-color: #01A1A1;
 	border-radius: 7px;
-	font-size: 5.3vw;
+	font-size: 4.9vw;
 	font-weight: bold;
 	line-height:3.1em;
 }
@@ -284,11 +301,7 @@ tr.reportList > td {
 }
 
 .button-report {
-	border-radius: 50px;
-	color: white;
-	font-size: 70px;
-	height: 95px;
-	width:  160px;
+	background-color: #125454;
 
 }
 
@@ -342,9 +355,12 @@ tr.reportList > td {
 
 .main-icon {
 	
-	color: #6FD5D5;
+	/*color: #6FD5D5;
 	font-size: 7vh;
-	padding: 5px;
+	padding: 5px;*/
+	height: 60px;
+	width: 60px;
+	
 }
 
 .main-icon:active{

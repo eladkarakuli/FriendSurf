@@ -5,7 +5,7 @@
 
 
 <!-- Login form -->
-	<div class="container-fluid main-theme-background status-list">
+	<div class="status-list">
 		<!-- Create new user -->
 		<div class="row-fluid status-list-item" >
 				
@@ -43,8 +43,8 @@
 		<br>
 		<div class="row-fluid status-list-item " >
 				
-				<div class="col-xs-12 center">
-					<span class="login-button" ng-click="doLogin()">Login</span>
+				<div class="col-xs-12 center" ng-click="doLogin()">
+					<span class="login-button" >Login</span>
 				</div>
 		</div>
 	</div>
@@ -62,12 +62,12 @@
 
 
 <!-- User interface-->
-<div class="v-center" ng-show="$root.currentUser">
-	<div class="container-fluid main-theme-background status-list">
+<div class="" ng-show="$root.currentUser">
+	<div class="container-fluid status-list">
 		<label class="white">Hi, {{$root.currentUser.username}}</label>
 		<div class="row-fluid status-list-item" >
-			<div class="col-xs-12 center">
-					<span class="login-button" ng-click="doLogout()">Logout</span>
+			<div class="col-xs-12 center" ng-click="doLogout()">
+					<span class="login-button" >Logout</span>
 				</div>
 		</div>
 	</div>
