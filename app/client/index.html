@@ -1,30 +1,36 @@
 <head>
-  <title>friendsurf</title>
+  <title>WaveShout</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 </head>
 
-<body ng-app="waveshout">
-
+<body ng-app="waveshout" ng-controller="IndexCtrl">
+<div class="bg-fixed">
+</div> 
 	<!-- navigator -->
-	<div class="container-fluid navigator full-screen">
-		<div class="row-fluid">
-			<div class="col-xs-3">
-				<span class="glyphicon glyphicon-user user-dropdown v-center" ui-sref="userInterface"></span>
+	<div class="row-fluid  navigator navigator-fixed">
+				<div class="col-xs-3">
+					<div><span ng-class="currentUser !== null ? 'glyphicon glyphicon-user user-dropdown v-center white':'glyphicon glyphicon-user user-dropdown v-center'" ui-sref="userInterface"></span></div><br>
+					<div><label class="white user-label">{{currentUser.username}}</label></div>
+				</div>
+				<!-- <div class="col-xs-6 center  v-center">
+					<span class="glyphicon glyphicon-bullhorn button-report"></span>
+				</div> -->
+				<div class="col-xs-6 center  v-center" ui-sref="spotsList">
+					<!-- <input type="text" class="search" ng-model="searchBox"/> -->
+					<img src="wave.png" class="main-icon"/>
+					<!-- <span class="glyphicon glyphicon-tint main-icon" ui-sref="spotsList"></span> -->
+				</div>
+				<div class="col-xs-3 right">
+					<span class="glyphicon glyphicon-cog settings v-center"></span>
+				</div>
 			</div>
-			<!-- <div class="col-xs-6 center  v-center">
-				<span class="glyphicon glyphicon-bullhorn button-report"></span>
-			</div> -->
-			<div class="col-xs-6 center  v-center">
-				<!-- <input type="text" class="search" ng-model="searchBox"/> -->
-				<span class="glyphicon glyphicon-tint main-icon" ui-sref="spotsList"></span>
-			</div>
-			<div class="col-xs-3 right">
-				<span class="glyphicon glyphicon-cog settings v-center"></span>
-			</div>
-		</div>
 		
+
+
+	<div class="container-fluid">
+			
 		
 		<br><br><Br><br><br>
 	  <!-- view -->
@@ -32,7 +38,7 @@
 
 
 	</div>
-  
+
 </body>
 
 <template name="empty">

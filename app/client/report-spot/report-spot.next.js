@@ -3,6 +3,7 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
   function ($scope, $meteor, $stateParams, $location, $timeout) {
     $scope.$meteorSubscribe('reports');
     $scope.reports = $meteor.collection(Reports);
+    $scope.spotName = $stateParams.spotName;
     $scope.messages = {};
     
 

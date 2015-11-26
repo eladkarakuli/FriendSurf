@@ -15,10 +15,10 @@
 </div> -->
 
 
-<div class="container-fluid main-theme-background status-list" ng-repeat="forecast in forecasts">
-	<div class="row-fluid status-list-item" >
-			<div class="col-xs-8">
-				<span class="glyphicon glyphicon-map-marker "></span><a class="no-link v-center-fix" href="/reports/{{forecast.spotName}}">{{forecast.spotName}}</a>
+<div class="container-fluid status-list" ng-repeat="forecast in forecasts">
+	<div class="row-fluid status-list-item" ui-sref="reportList({spotName: forecast.spotName})">
+			<div class="col-xs-8" >
+				<span class="glyphicon glyphicon-map-marker "></span>{{forecast.spotName}}
 			</div>
 			<div class="col-xs-2">
 				<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> -->
@@ -26,7 +26,7 @@
 			</div>
 			<div class="col-xs-2"> 
 				<span class="glyphicon glyphicon-user "></span>
-				<p class="v-center-fix reports-mini-icon">
+				<p class="v-center-fix left reports-mini-icon">
 					<label class="reports-mini-number">{{forecast.hourlyReportCount}}</label>
 				</p>
 			</div>
