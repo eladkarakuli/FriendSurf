@@ -1,12 +1,12 @@
 <!-- NAV -->
 <div class="status-list">
 	<div class="row-fluid status-list-item">
-		<div class="col-xs-3 center button-back" ui-sref="reportList({spotName: $stateParams.spotName})">
+		<div class="col-xs-3 center button-back" ui-sref="reportList({spotName: spotName})">
 			<!-- <a class="no-link" href="/">&laquo;Back</a> -->
-			<span class="glyphicon glyphicon-chevron-left center" ></span> 
+			<span class="glyphicon glyphicon-chevron-left center"></span> 
 		</div>
 		<div class="col-xs-9 center button-report" ng-disabled="vm.someForm.$invalid" ng-click="vm.submit(vm.user)">
-			<span class="white" >Submit Report</span>
+			<span class="white">Submit Report</span>
 		</div>
 	</div>
 </div>
