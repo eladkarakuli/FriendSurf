@@ -131,7 +131,12 @@ tr.reportList > td {
 
 .user-dropdown {
 	color: #23ADAD;
-	font-size: 7vh;
+	font-size: 37px;
+}
+
+.user-label {
+	font-size: 15px;
+	font-family: Arial;
 }
 
  .user-dropdown:active{
@@ -148,7 +153,7 @@ tr.reportList > td {
 .settings {
 
 	 color: #23ADAD;
-	font-size: 7vh;
+	font-size: 38px;
  }
  
  .settings:active{
@@ -360,7 +365,7 @@ tr.reportList > td {
 	padding: 5px;*/
 	height: 60px;
 	width: 60px;
-	
+
 }
 
 .main-icon:active{
@@ -382,13 +387,15 @@ tr.reportList > td {
 
 .reports-mini-icon {
 	text-align: center;
-	background-color: #43BFBF;
+	/*background-color: #43BFBF;*/
+	background-color: #125454;
 	color: white;
 	border-radius: 50px;
+	border: 2px solid white;
 	height: 1.4em;
 	width: 1.4em;
 	font-size: 5vw;
-	line-height: 5vh;
+	line-height: 3.4vh;
 	top: 1vw;
 	position: absolute;
 	right: 1.5vw;

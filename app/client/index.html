@@ -11,8 +11,8 @@
 	<!-- navigator -->
 	<div class="row-fluid  navigator navigator-fixed">
 				<div class="col-xs-3">
-					<span class="glyphicon glyphicon-user user-dropdown v-center" ui-sref="userInterface"></span>
-					<label class="white">{{$root.currentUser}}</label>
+					<div><span ng-class="currentUser !== null ? 'glyphicon glyphicon-user user-dropdown v-center white':'glyphicon glyphicon-user user-dropdown v-center'" ui-sref="userInterface"></span></div><br>
+					<div><label class="white user-label">{{currentUser.username}}</label></div>
 				</div>
 				<!-- <div class="col-xs-6 center  v-center">
 					<span class="glyphicon glyphicon-bullhorn button-report"></span>

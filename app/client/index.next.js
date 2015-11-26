@@ -1,7 +1,8 @@
-angular.module('waveshout').controller('IndexCtrl', ['$scope', '$meteor', '$stateParams',  '$location', '$timeout',
+angular.module('waveshout').controller('IndexCtrl', ['$scope','$rootScope', '$meteor', '$stateParams',  '$location', '$timeout',
 
-  function ($scope, $meteor, $stateParams, $location, $timeout) {
+  function ($scope, $rootScope, $meteor, $stateParams, $location, $timeout) {
 
-  	
+  	$scope.currentUser = $rootScope.currentUser;
+  	console.log($scope.currentUser);
 
   }]);
