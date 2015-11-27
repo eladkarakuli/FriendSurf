@@ -41,28 +41,33 @@
 </div>
 <div class="container-fluid status-list scroll" ng-repeat="report in reports | orderBy:'-date'">
 	<div class="row-fluid status-list-item" >
-			<div class="col-xs-5">
-				<span class="glyphicon glyphicon-time date-label" style="padding-right: 1vh;"></span><span class="v-center-fix date-label" >{{report.date | date:'HH:mm' }}</span>
-			</div>
-			<div class="col-xs-3">
-				<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> -->
-				<span class="v-center-fix no-bold white">{{report.height / 100 | number:1}}m</span>
-			</div>
-			<div class="col-xs-4"> 
-				<!-- <span class="glyphicon glyphicon-user "></span> --><span class="v-center-fix user-label" >{{report.reporter}}</span>
-			</div>
-	<div class="row-fluid report-description">
+		<div class="col-xs-5">
+			<span class="glyphicon glyphicon-time date-label" style="padding-right: 1vh;"></span><span class="v-center-fix date-label" >{{report.date | date:'HH:mm' }}</span>
+		</div>
+		<div class="col-xs-3">
+			<!-- <img src="wave2.png" style="height: 30; width: 61;" class="v-center"/> -->
+			<span class="v-center-fix no-bold white">{{report.height / 100 | number:1}}m</span>
+		</div>
+		<div class="col-xs-4"> 
+			<!-- <span class="glyphicon glyphicon-user "></span> --><span class="v-center-fix user-label" >{{report.reporter}}</span>
+		</div>
+		<div class="row-fluid report-description">
 			<div class="col-xs-9"> 
 				<span class="v-center-fix" >{{report.description}}</span>
 			</div>
-			<div class="col-xs-3">
-				<span class="glyphicon glyphicon-star"></span>
-				<span><blaze-template name="favoriteCountReport"></blaze-template></span>
-				<!-- <blaze-template name="favoriteButtonReport"></blaze-template> -->
-				
+			<div class="col-xs-3">	
+				<span ng-switch="isUserLoggedin">
+					<span ng-switch-when="true">
+						<blaze-template name="favoriteButtonReport"></blaze-template>
+					</span>
+					<span ng-switch-when="false">
+						<span class="favorite-button fav-icon-disabled glyphicon glyphicon-star"></span>
+					</span>
+				</span>
+				<span>
+					<blaze-template name="favoriteCountReport"></blaze-template>
+				</span>
 			</div>
-	</div>
-			
-		
+		</div>
 	</div>
 </div>

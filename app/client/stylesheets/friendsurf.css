@@ -450,3 +450,10 @@ tr.reportList > td {
 	color: white;
 }
 
+.fav-icon-liked {
+	color: blue;
+}
+
+.fav-icon-unliked {
+	color: grey;
+}

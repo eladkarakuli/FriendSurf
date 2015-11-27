@@ -6,10 +6,10 @@
 	{{favoriteCount report._id}}
 </template>
 
-<template name="favoriteButtonSpot">
-	{{> favoriteButton _id=spot.name}}
+<template name="favoriteButtonReportFavorited">
+    <span doc="{{_id}}" class="favorite-button fav-icon-liked glyphicon glyphicon-star"></span>
 </template>
 
-<template name="favoriteCountSpot">
-	{{favoriteCount scope.spot._id}}
+<template name="favoriteButtonReportNotFavorited">
+    <span doc="{{_id}}" class="favorite-button fav-icon-unliked glyphicon glyphicon-star"></span>
 </template>
