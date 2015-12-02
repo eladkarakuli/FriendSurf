@@ -1,7 +1,7 @@
 var configFormlyTypes =  function config(formlyConfigProvider) {  
   formlyConfigProvider.setType({
   	name: 'heightPicker',
-    templateUrl: 'swell-picker-templeate.html'
+    templateUrl: 'client/report-spot/swell-picker-templeate.ng.html'
   });
 };
 
