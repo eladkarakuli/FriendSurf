@@ -4,30 +4,47 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 templates:tabs
 maazalik:highcharts
 meteoric:ionic
-mquandalle:harmony
 http
 dsyko:meteor-node-csv
 meteorhacks:npm
 
 
-npm-container
 aldeed:collection2
 meteorhacks:aggregate
-angular
 angularui:angular-ui-router
 vivekkatta:meteor-angular-formly
-iron:router
 jss:path
 accounts-password
 accounts-ui
 urigo:angular-blaze-template
 digilord:sugarjs
-yogiben:favorites
 underscore
 promise
 accounts-base
 aldeed:template-extension
+mquandalle:bower
+es5-shim
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+
+
+npm-container
+iron:router
+angular-with-blaze
+ecmascript
+blaze
+blaze-html-templates

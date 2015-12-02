@@ -5,7 +5,6 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
     $scope.reports = $meteor.collection(Reports);
     $scope.spotName = $stateParams.spotName;
     $scope.messages = {};
-    
 
   	var vm = this;
   	vm.user = {};
@@ -24,11 +23,18 @@ angular.module('waveshout').controller('InsertReportCtrl', ['$scope', '$meteor',
   		}
   	},*/
   	{
-  		key: 'height',
+  		/*key: 'height',
   		type: 'input',
   		templateOptions: {
   			label: "Wave Height (cm)"
-  		}
+  		}*/
+      key: 'height',
+      type: 'heightPicker',
+      noFormControl: true,
+      templateOptions: {
+        label: 'Wave Height',
+        placeholder: 'Formly is terrific!',
+      }
   	},
   	{
   		key: 'description',

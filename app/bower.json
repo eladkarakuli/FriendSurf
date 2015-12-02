@@ -1,0 +1,8 @@
+{
+  "name": "wave-shout",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular-number-picker": "1.2.2"
+  },
+  "private": true
+}

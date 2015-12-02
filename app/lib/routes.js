@@ -4,13 +4,9 @@ Router.configure({
     notFoundTemplate: 'empty'
 });
 
-
 /*
 Router.onBeforeAction('loading');
 
-Router.route('/', function () {
-  this.render('Home');
-});
 
 Router.route('/:_id', {
 	loadingTemplate: 'loading',
