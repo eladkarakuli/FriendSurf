@@ -12,7 +12,7 @@ Schemas.Report = new SimpleSchema({
     },
     height: {
         type: Number,
-        label: "Swell Height",
+        label: "Wave Height",
         max: 10000,
         min: 0
     },
