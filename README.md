@@ -26,8 +26,6 @@ Social swell forecast app, build using [meteor](https://www.meteor.com).
 <br />
 
 <a name="ecmascript6">
-### ECMAScript 6
+### ES 6
 
-Using [mquandalle:harmony](https://atmospherejs.com/mquandalle/harmony) meteor package, we are able to write in ECMAScript 6 and meteor will compile the files to ECMAScript 5 using [Traceur](https://github.com/google/traceur-compiler).
-
-Each file with the `.next.js` extension will be automatically compiled (with source maps) and bundled.
+Meteor 1.2 has been released. It comes with native ES6 support through [ecmascript](https://atmospherejs.com/meteor/ecmascript).
