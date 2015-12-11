@@ -3,14 +3,10 @@
 angular.module('waveshout').controller('ListReportsCtrl', ['$scope', '$meteor', '$stateParams', '$location',
 
 	function ($scope, $meteor, $stateParams, $location) {
-		// costomize favorite buttons
-		Template.favoriteButtonReportFavorited.replaces("favoriteButtonFavorited");
-		Template.favoriteButtonReportNotFavorited.replaces("favoriteButtonNotFavorited");
-
-		$scope.isUserLoggedin = Meteor.user() !== null;
-
 		$scope.$meteorSubscribe('reports');
 		$scope.$meteorSubscribe('favorites');
+		$scope.$meteorSubscribe('likes');
+
 		$scope.reports = $meteor.collection(function() {
 			return Reports.find({ spotName: $stateParams.spotName });
 		});

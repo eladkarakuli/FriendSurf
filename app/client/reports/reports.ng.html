@@ -55,18 +55,8 @@
 			<div class="col-xs-9"> 
 				<span class="v-center-fix" >{{report.description}}</span>
 			</div>
-			<div class="col-xs-3">	
-				<span ng-switch="isUserLoggedin">
-					<span ng-switch-when="true">
-						<blaze-template name="favoriteButtonReport"></blaze-template>
-					</span>
-					<span ng-switch-when="false">
-						<span class="favorite-button fav-icon-disabled glyphicon glyphicon-star"></span>
-					</span>
-				</span>
-				<span>
-					<blaze-template name="favoriteCountReport"></blaze-template>
-				</span>
+			<div class="col-xs-3">
+				<likeable obj="report"></likeable>
 			</div>
 		</div>
 	</div>

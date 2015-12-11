@@ -450,10 +450,14 @@ tr.reportList > td {
 	color: white;
 }
 
-.fav-icon-liked {
+.like-icon-liked {
 	color: blue;
 }
 
-.fav-icon-unliked {
+.like-icon-unliked {
 	color: grey;
+}
+
+.like-icon-disable {
+	color: white;
 }

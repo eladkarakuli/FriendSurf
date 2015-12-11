@@ -10,6 +10,11 @@ Meteor.publish('reports', function() {
 	return Reports.find();
 });
 
+Meteor.publish('likes', function() {
+	return Likes.find({userId: this.userId});
+});
+
+
 /*Meteor.publish('reports-by-spot', function(spotName) {
 	return Reports.find({spotName: spotName});
 });*/

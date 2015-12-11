@@ -1,0 +1,8 @@
+<span ng-class="isLiked ? 'like-icon-liked' : 'like-icon-unliked'">
+	<span ng-class="{'like-icon-disable': isDisabled}">
+		<span class="glyphicon glyphicon-star" ng-click="toggleLike()"></span>
+		<span>
+			<span>{{likeCount}}</span>
+		</span>
+	</span>
+</span>

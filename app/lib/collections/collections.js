@@ -1,7 +1,12 @@
 var Schemas = {};
 
+// Reports is a likeable collection
+var Report = BaseModel.extendAndSetupCollection("reports");
+LikeableModel.makeLikeable(Report, "report");
+Reports = Report.collection;
+Likes = Like.collection;
+
 Spots = new Mongo.Collection("spots");
-Reports = new Mongo.Collection("reports");
 CurrentForecast = new Mongo.Collection("currentForecast");
 
 Schemas.Report = new SimpleSchema({
@@ -27,8 +32,8 @@ Schemas.Report = new SimpleSchema({
         max: 250
     },
     spotName: {
-    	type: String,
-    	label: "Reported Spot"
+        type: String,
+        label: "Reported Spot"
     }
 });
 
